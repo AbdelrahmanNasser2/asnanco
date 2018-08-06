@@ -14,7 +14,9 @@ class UsersController extends Controller
      */
     public function index()
     {
-        //
+        $users = Users::all()->toArray();
+
+        return view('Admin.index', compact('users'));
     }
 
     /**
@@ -49,7 +51,7 @@ class UsersController extends Controller
 
         $user->save();
 
-        return redirect()->route('Admin.create')->with('success', 'Data Added');
+        return redirect()->route('Admin.index')->with('success', 'Data Added');
     }
 
     /**
