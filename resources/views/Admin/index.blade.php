@@ -30,14 +30,35 @@
 				<td>{{$row['UserName']}}</td>
 				<td>{{$row['Password']}}</td>
 				<td>{{$row['Role_type']}}</td>
-				<td><a href="{{action('UsersController@edit', 
-					$row['id'])}}" class="btn btn-warning">
-					Edit</a></td>
-				<td></td>
+				<td>
+					<a href="{{action('UsersController@edit', $row['id'])}}" class="btn btn-warning">Edit</a>
+				</td>
+				<td>
+					<form method="post" class="delete_form" 
+					action="{{action('UsersController@destroy', $row['id'])}}">
+					 	{{csrf_field()}}
+					 	<input type="hidden" name="_method" value="DELETE" >
+					 	<button type="submit" class="btn btn-danger">Delete</button>
+					</form>
+				</td>
 			</tr>
 			@endforeach
 		</table>
 	</div>
 </div>
+<script>
+$(document).ready(function(){
+	$('.delete_form').on('submit', function(){
+		if(confirm("Are you sure you want to delete it ?"))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	});
+});
+</script>
 @endsection
 
