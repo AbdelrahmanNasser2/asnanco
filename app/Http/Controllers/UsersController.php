@@ -73,7 +73,9 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = Users::find($id);
+
+        return view('Admin.edit', compact('user', 'id'));
     }
 
     /**
@@ -85,7 +87,20 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'UserName'  => 'required',
+            'Password'  => 'required',
+            'Role_type' => 'required'
+        ]);
+
+        $user = Users::find($id);
+        $user->UserName  = $request->get('UserName');
+        $user->Password  = $request->get('Password');
+        $user->Role_type = $request->get('Role_type');
+        $user->save();
+
+        return redirect()->route('Admin.index')->with(
+            'success', 'Data Updated');
     }
 
     /**

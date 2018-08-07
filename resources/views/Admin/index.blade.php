@@ -30,7 +30,9 @@
 				<td>{{$row['UserName']}}</td>
 				<td>{{$row['Password']}}</td>
 				<td>{{$row['Role_type']}}</td>
-				<td></td>
+				<td><a href="{{action('UsersController@edit', 
+					$row['id'])}}" class="btn btn-warning">
+					Edit</a></td>
 				<td></td>
 			</tr>
 			@endforeach
