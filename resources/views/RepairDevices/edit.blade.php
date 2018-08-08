@@ -42,7 +42,7 @@
 			</div>
 			<div class="form-group">
 				<label style="float: right; font-size: 20px;">التكلفة</label>
-				<input type="number" step="0.01" name="cost" class="form-control" placeholder="التكلفة" value="{{ $repairDevice['cost'] }}" required="">
+				<input type="number" step="0.01" min="0" name="cost" class="form-control" placeholder="التكلفة" value="{{ $repairDevice['cost'] }}" required="">
 			</div>
 			<div class="form-group">
 				<label style="float:right; font-size: 20px;">تعليق</label>
