@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
 	<h1 align="Center">المشتريات</h1>
-<div align="right">
+		<div align="right">
 			<a href="{{ action('PurchaseController@create') }}" class="btn btn-primary">اضافه مشترى جديد</a>
 			<br>
 			<br>

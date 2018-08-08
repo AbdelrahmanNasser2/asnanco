@@ -14,7 +14,7 @@ class PurchaseController extends Controller
     public function index()
     {
         $purchases = Purchase::all();
-           $siz = sizeof($purchases);
+        $siz = sizeof($purchases);
         $purchase = array($purchases[$siz-1]);
         return view('Purchases.index')->with('purchases',$purchase);
     }
