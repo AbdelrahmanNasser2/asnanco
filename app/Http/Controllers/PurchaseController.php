@@ -37,6 +37,15 @@ class PurchaseController extends Controller
      */
     public function store(Request $request)
     {
+
+          $this->validate($request, [
+            'resource_name'  => 'required',
+            'purchase_date'  => 'required',
+            'cost' => 'required',
+            'comment'  => 'required',
+            'officer' => 'required'
+        ]);
+
         $purchase = new Purchase();
         $purchase->resource_name = $request->get('resource_name');
         $purchase->purchase_date = $request->get('purchase_date');
@@ -66,7 +75,8 @@ class PurchaseController extends Controller
      */
     public function edit($id)
     {
-        //
+        $purchase = Purchase::find($id);
+        return view("Purchases.edit")->with('purchase',$purchase);
     }
 
     /**
@@ -78,7 +88,23 @@ class PurchaseController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+            $this->validate($request, [
+            'resource_name'  => 'required',
+            'purchase_date'  => 'required',
+            'cost' => 'required',
+            'comment'  => 'required',
+            'officer' => 'required'
+        ]);
+
+        $purchase = Purchase::find($id);
+        $purchase->resource_name = $request->get('resource_name');
+        $purchase->purchase_date = $request->get('purchase_date');
+        $purchase->cost = $request->get('cost');
+        $purchase->comment = $request->get('comment');
+        $purchase->officer = $request->get('officer');
+        $purchase->save();
+
+        return redirect('Purchases');
     }
 
     /**
@@ -89,6 +115,7 @@ class PurchaseController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Purchase::destroy($id);
+        return redirect('Purchases');
     }
 }
