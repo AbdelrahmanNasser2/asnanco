@@ -26,11 +26,11 @@
 				<td align="Center">{{ $purchase["cost"] }}</td>
 				<td align="Center">{{ $purchase["comment"] }}</td>
 				<td align="Center">{{ $purchase["officer"] }}</td>
-				<td align="Center"><a href="{{ action('PurchaseController@edit',$purchase['id']) }}" class="btn btn-primary" style="background-color: green; border-color: green ;">تعديل</a>
+				<td align="Center"><a href="{{ action('PurchaseController@edit',$purchase['id']) }}" class="btn btn-success">تعديل</a>
 					<form method="post" action="{{ action('PurchaseController@destroy',$purchase['id']) }}" style="display: inline;">
 						{{csrf_field()}}
 						{{ method_field('DELETE') }}
-						<input type="submit" name="" value="حذف"   class="btn btn-primary" style="background-color: red;  border-color: red;">
+						<input type="submit" name="" value="حذف"   class="btn btn-danger">
 					</form>
 								   
 				</td>
