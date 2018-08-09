@@ -16,7 +16,7 @@
 				<td align="Center">التكلفه</td>
 				<td align="Center">تعليق</td>
 				<td align="Center">المكتب</td>
-				<td align="Center">تعديل \ حذف</td>
+				<td align="Center">تع ديل \ حذف</td>
 			</tr>
 		</thead>
 		<tbody>
@@ -29,7 +29,7 @@
 				<td align="Center"><a href="{{ action('PurchaseController@edit',$purchase['id']) }}" class="btn btn-success">تعديل</a>
 					<form method="post" action="{{ action('PurchaseController@destroy',$purchase['id']) }}" style="display: inline;">
 						{{csrf_field()}}
-						{{ method_field('DELETE') }}
+						{{ method_field('DELETE') }} 
 						<input type="submit" name="" value="حذف"   class="btn btn-danger">
 					</form>
 								   
