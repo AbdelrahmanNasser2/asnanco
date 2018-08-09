@@ -4,7 +4,7 @@
 <div class="row">
 	<div class="col-md-12">
 		<br>
-		<h3 align="center">Users Accounts</h3>
+		<h3 align="center">حسابات المستخدمين</h3>
 		<br>
 		@if($message = Session::get('success'))
 		<div class="alert alert-success">
@@ -12,33 +12,33 @@
 		</div>
 		@endif
 		<div align="right">
-			<a href="{{route('Admin.create')}}" class="btn btn-primary">Add New Account</a>
+			<a href="{{route('Admin.create')}}" class="btn btn-primary">اضافه حساب جديد</a>
 			<br>
 			<br>
 
 		</div>
 		<table class="table table-bordered table-striped">
 			<tr>
-				<th>Username</th>
-				<th>Password</th>
-				<th>Role Type</th>
-				<th>Edit</th>
-				<th>Delete</th>
+				<th style="text-align:center;">النوع</th>
+				<th style="text-align:center;">كلمة السر</th>
+				<th style="text-align:center;">الأسم</th>
+				<th style="text-align:center;">تعديل</th>
+				<th style="text-align:center;">حذف الحساب</th>
 			</tr>
 			@foreach($users as $row)
 			<tr>
-				<td>{{$row['UserName']}}</td>
-				<td>{{$row['Password']}}</td>
-				<td>{{$row['Role_type']}}</td>
-				<td>
-					<a href="{{action('UsersController@edit', $row['id'])}}" class="btn btn-warning">Edit</a>
+				<td align="center">{{$row['Role_type']}}</td>
+				<td align="center">{{$row['Password']}}</td>
+				<td align="right">{{$row['UserName']}}</td>
+				<td align="center">
+					<a href="{{action('UsersController@edit', $row['id'])}}" class="btn btn-warning">تعديل</a>
 				</td>
-				<td>
+				<td align="center">
 					<form method="post" class="delete_form" 
 					action="{{action('UsersController@destroy', $row['id'])}}">
 					 	{{csrf_field()}}
 					 	<input type="hidden" name="_method" value="DELETE" >
-					 	<button type="submit" class="btn btn-danger">Delete</button>
+					 	<button type="submit" class="btn btn-danger">حذف</button>
 					</form>
 				</td>
 			</tr>
