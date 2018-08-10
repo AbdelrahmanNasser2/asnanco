@@ -90,7 +90,7 @@ class PurchaseController extends Controller
 
         //return redirect('Purchases');
 
-        return Excel::download(new Purchase , 'purchase.xlsx');
+        return Excel::download(new PurchaseExport, 'purchase.xlsx');
 
     }
 
