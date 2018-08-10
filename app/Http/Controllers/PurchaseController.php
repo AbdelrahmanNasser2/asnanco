@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Purchase;
+use Excel;
 class PurchaseController extends Controller
 {
     /**
@@ -35,7 +36,7 @@ class PurchaseController extends Controller
 
         return view('Purchases.create');
     }
-
+        
     /**
      * Store a newly created resource in storage.
      *
@@ -71,7 +72,26 @@ class PurchaseController extends Controller
      */
     public function show($id)
     {
-        //
+        // $purchases = Purchase::all();
+        // $purchases_array = array('اسم المشترى','تعليق  ','التكلفة','تاريخ الشراء','اسم المورد' );
+        // foreach ($purchases as $purchase) {
+        //        $purchases_array[] = array('اسم المشترى' => $purchase["resource_name"],
+        //         'تعليق' => $purchase["comment"],
+        //         'التكلفة' => $purchase["cost"],
+        //         'تاريخ الشراء' => $purchase["purchase_date"],
+        //         'اسم المورد' => $purchase["officer"]);
+        //    }   
+        //    Excel::create('Purchase Data',function($excel) use( $purchases_array) {
+        //         $excel->setTitle('Purchase Data');
+        //         $excel->sheet('Purchase Data' ,function($sheet) use($purchases_array){
+        //             $sheet->fromArray($purchases_array,null,'A1',false,false);
+        //         });
+        //    })->download('xlsx');
+
+        //return redirect('Purchases');
+
+        return Excel::download(new Purchase , 'purchase.xlsx');
+
     }
 
     /**
@@ -125,4 +145,27 @@ class PurchaseController extends Controller
         Purchase::destroy($id);
         return redirect('Purchases');
     }
+
+    public function excel()
+    {
+       
+        $purchases = Purchases::all();
+        $purchases_array = array('اسم المشترى','تعليق  ','التكلفة','تاريخ الشراء','اسم المورد' );
+        foreach ($purchases as $purchase) {
+               $purchases_array[] = array('اسم المشترى' => $purchase["resource_name"],
+                'تعليق' => $purchase["comment"],
+                'التكلفة' => $purchase["cost"],
+                'تاريخ الشراء' => $purchase["purchase_date"],
+                'اسم المورد' => $purchase["officer"]);
+           }   
+           Excel::create('Purchase Data',function($excel) use( $purchases_array) {
+                $excel->setTitle('Purchase Data');
+                $excel->sheet('Purchase Data' ,function($sheet) use($purchases_array){
+                    $sheet->fromArray($purchases_array,null,'A1',false,false);
+                });
+           })->download('xlsx');
+
+        return redirect('Purchases');
+    }
+
 }
