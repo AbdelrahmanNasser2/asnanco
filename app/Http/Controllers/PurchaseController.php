@@ -72,15 +72,15 @@ class PurchaseController extends Controller
      */
     public function show($id)
     {
-        // $purchases = Purchase::all();
-        // $purchases_array = array('اسم المشترى','تعليق  ','التكلفة','تاريخ الشراء','اسم المورد' );
-        // foreach ($purchases as $purchase) {
-        //        $purchases_array[] = array('اسم المشترى' => $purchase["resource_name"],
-        //         'تعليق' => $purchase["comment"],
-        //         'التكلفة' => $purchase["cost"],
-        //         'تاريخ الشراء' => $purchase["purchase_date"],
-        //         'اسم المورد' => $purchase["officer"]);
-        //    }   
+        $purchases = Purchase::all();
+        $purchases_array = array('اسم المشترى','تعليق  ','التكلفة','تاريخ الشراء','اسم المورد' );
+        foreach ($purchases as $purchase) {
+               $purchases_array[] = array('اسم المشترى' => $purchase["resource_name"],
+                'تعليق' => $purchase["comment"],
+                'التكلفة' => $purchase["cost"],
+                'تاريخ الشراء' => $purchase["purchase_date"],
+                'اسم المورد' => $purchase["officer"]);
+           }   
         //    Excel::create('Purchase Data',function($excel) use( $purchases_array) {
         //         $excel->setTitle('Purchase Data');
         //         $excel->sheet('Purchase Data' ,function($sheet) use($purchases_array){
@@ -90,7 +90,7 @@ class PurchaseController extends Controller
 
         //return redirect('Purchases');
 
-        return Excel::download(new PurchaseExport, 'purchase.xlsx');
+        return Excel::download(new Collection($purchases_array), 'purchase.xlsx');
 
     }
 
