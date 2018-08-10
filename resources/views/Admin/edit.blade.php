@@ -4,7 +4,18 @@
 
 <div class="row">
 	<div class="col-mid-12">
-		<br>
+		@if (Route::has('login'))
+            <div class="top-right links">
+                @if (Session::has('username'))
+                    <a href="{{ url('/') }}">Home</a>
+                    <a href="{{url('/logout')}}">Logout</a>
+                @else
+                    <a href="{{ url('/login') }}">Login</a>
+                @endif
+            </div>
+        @endif
+		<br/>
+		<br/>
 		<h3 style="text-align:center;">تعديل الحساب</h3>
 		<br>
 		@if(count($errors) > 0)
