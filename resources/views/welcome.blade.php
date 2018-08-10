@@ -68,26 +68,28 @@
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
-                    @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
+                    @if (Session::has('username'))
+                        <a href="{{ url('/') }}">Home</a>
+                        <a href="{{url('/logout')}}">Logout</a>
                     @else
                         <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
                     @endif
                 </div>
             @endif
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Asnanco
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a href="{{url('')}}" style="font-size: 18px;">قسم المرضى</a>
+                    <a href="{{url('Purchases')}}" style="font-size: 18px;">المشتريات</a>
+                    <a href="{{url('RepairDevices')}}" style="font-size: 18px;">صيانة الاجهزه</a>
+                    @if(session('role') == 1)
+                    <a href="{{url('')}}" style="font-size: 18px;">المرتبات</a>
+                    @endif
+                    <a href="{{url('')}}" style="font-size: 18px;">المعامل</a>
                 </div>
             </div>
         </div>
