@@ -2,19 +2,8 @@
 
 @section('content')
 <div class="row">
-	@if (Route::has('login'))
-        <div class="top-right links">
-            @if (Session::has('username'))
-                <a href="{{ url('/') }}">Home</a>
-                <a href="{{url('/logout')}}">Logout</a>
-            @else
-                <a href="{{ url('/login') }}">Login</a>
-            @endif
-        </div>
-    @endif
-    <br/>
-    <br/>
-	<h1 align="Center">تعديل مشترى</h1>
+
+	<h3 align="Center">تعديل مشترى</h3>
 	<form method="post" action="{{ action('PurchaseController@update',$purchase['id']) }}">
 		{{csrf_field()}}
 		{{ method_field('PATCH') }}

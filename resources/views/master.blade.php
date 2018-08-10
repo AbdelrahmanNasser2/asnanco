@@ -12,6 +12,8 @@
 <body>
 
 <div class="container">
+	@include('header')
+	<br/><br/><br/>
 	@yield('content')
 </div>
 </body>
