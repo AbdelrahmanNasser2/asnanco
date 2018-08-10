@@ -15,6 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('login','LoginController@index')->name('login');
+
+Route::post('checkLogin', 'LoginController@checkLogin');
+
+Route::get('logout', 'LoginController@logout');
+
 Route::resource('Admin', 'UsersController');
 
 Route::resource('Purchases', 'PurchaseController');
