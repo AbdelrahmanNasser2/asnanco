@@ -20,3 +20,4 @@ Route::resource('Admin', 'UsersController');
 Route::resource('Purchases', 'PurchaseController');
 
 Route::resource('RepairDevices', 'RepairDevicesController');
+
