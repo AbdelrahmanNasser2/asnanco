@@ -12,22 +12,29 @@
 		<thead>
 			<tr>
 				<td align="Center">اسم المشتري</td>
-				<td align="Center">تاريخ الشراء</td>
-				<td align="Center">التكلفه</td>
 				<td align="Center">تعليق</td>
-				<td align="Center">المكتب</td>
-				<td align="Center">تع ديل \ حذف</td>
+				<td align="Center">التكلفه</td>
+				<td align="Center">تاريخ الشراء</td>
+				<td align="Center">اسم المورد</td>
+				<td align="Center">تعديل</td>
+				<td align="Center">حذف</td>
 			</tr>
 		</thead>
 		<tbody>
 			@foreach($purchases as $purchase)
-				<td align="Center">{{ $purchase["resource_name"] }}</td>
-				<td align="Center">{{ $purchase["purchase_date"] }}</td>
-				<td align="Center">{{ $purchase["cost"] }}</td>
-				<td align="Center">{{ $purchase["comment"] }}</td>
 				<td align="Center">{{ $purchase["officer"] }}</td>
+<<<<<<< HEAD
 				<td align="Center"><a href="{{ action('PurchaseController@edit',$purchase['id']) }}" class="btn btn-success">تعديل</a>
 					<form id = "del" method="post" action="{{ action('PurchaseController@destroy',$purchase['id']) }}" style="display: inline;">
+=======
+				<td align="Center">{{ $purchase["comment"] }}</td>
+				<td align="Center">{{ $purchase["cost"] }}</td>
+				<td align="Center">{{ $purchase["purchase_date"] }}</td>
+				<td align="Center">{{ $purchase["resource_name"] }}</td>
+				<td align="Center"><a href="{{ action('PurchaseController@edit',$purchase['id']) }}" class="btn btn-success">تعديل</a></td>
+				<td align="Center">
+					<form method="post" action="{{ action('PurchaseController@destroy',$purchase['id']) }}" style="display: inline;">
+>>>>>>> ebd1e5c584f83b269b2e786c7622ec46baeb1707
 						{{csrf_field()}}
 						{{ method_field('DELETE') }} 
 						<input type="submit" name="" value="حذف"   class="btn btn-danger">
