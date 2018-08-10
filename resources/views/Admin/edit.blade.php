@@ -4,7 +4,7 @@
 
 <div class="row">
 	<div class="col-mid-12">
-
+	@if(session('role') == 1)
 		<h3 style="text-align:center;">تعديل الحساب</h3>
 		<br>
 		@if(count($errors) > 0)
@@ -43,6 +43,9 @@
 				btn-primary" value="تعديل" />
 			</div>
 		</form>
+	@else
+		@include('httpAuth')
+	@endif
 	</div>
 </div>
 

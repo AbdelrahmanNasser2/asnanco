@@ -4,8 +4,8 @@
 
 <div class="row">
 	<div class="col-md-12">
-		<br/>
-		<h1 align="center">إضافة بيان مرتب</h1>
+	@if(session('role') == 1)
+		<h3 align="center">إضافة بيان مرتب</h3>
 		<br/>
 		@if(count($errors) > 0)
 			<div class="alert alert-danger">
@@ -69,6 +69,9 @@
 		<br/>
 		<br/>
 		<br/>
+	@else
+		@include('httpAuth')
+	@endif
 	</div>
 </div>
 

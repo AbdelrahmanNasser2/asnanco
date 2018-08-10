@@ -62,7 +62,7 @@
                     <a href="{{url('Purchases')}}" style="font-size: 18px;">المشتريات</a>
                     <a href="{{url('RepairDevices')}}" style="font-size: 18px;">صيانة الاجهزه</a>
                     @if(session('role') == 1)
-                    <a href="{{url('')}}" style="font-size: 18px;">المرتبات</a>
+                    <a href="{{url('Salary')}}" style="font-size: 18px;">المرتبات</a>
                     @endif
                     <a href="{{url('')}}" style="font-size: 18px;">المعامل</a>
                 </div>

@@ -12,7 +12,7 @@
 
     <link rel="apple-touch-icon" href="apple-icon.png">
     <link rel="shortcut icon" href="favicon.ico">
-
+    
     <link rel="stylesheet" href="{{asset('css/normalize.css')}}">
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
@@ -61,14 +61,7 @@
                 </div>
             @else
 
-                <div class="login-logo" style="margin-top: 50%;">
-                    <h1 style="color: white; font-family: 'Raleway';">ASNANCO</h1>
-                    <br/>
-                    <div align="center">
-                        <h3 style="color: white; font-family: 'Raleway';">Soory You can't go to this page</h3>
-                    </div>
-                    
-                </div>
+                @include('httpAuth')
 
             @endif
             </div>
