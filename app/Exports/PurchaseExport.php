@@ -14,4 +14,15 @@ class PurchaseExport implements FromCollection
     {
         return Purchase::all();
     }
+
+    public function headings(): array
+    {
+        return [
+            'اسم المشتري',
+            'تعليق',
+            'التكلفة',
+            'تاريخ الشراء',
+            'اسم المورد'
+        ];
+    }
 }
