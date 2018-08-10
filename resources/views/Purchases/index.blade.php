@@ -27,7 +27,7 @@
 				<td align="Center">{{ $purchase["comment"] }}</td>
 				<td align="Center">{{ $purchase["officer"] }}</td>
 				<td align="Center"><a href="{{ action('PurchaseController@edit',$purchase['id']) }}" class="btn btn-success">تعديل</a>
-					<form method="post" action="{{ action('PurchaseController@destroy',$purchase['id']) }}" style="display: inline;">
+					<form id = "del" method="post" action="{{ action('PurchaseController@destroy',$purchase['id']) }}" style="display: inline;">
 						{{csrf_field()}}
 						{{ method_field('DELETE') }} 
 						<input type="submit" name="" value="حذف"   class="btn btn-danger">
@@ -38,4 +38,17 @@
 		</tbody>
 	</table>
 </div>
+<script type="text/javascript">
+	$(document).ready(function () {
+		$('#del').on('submit' , function() {
+			var con = confirm("Ary you sure you want delete this purchase?");
+			if(con){
+				return true;
+			}else{
+				return false;
+			}
+
+		});
+	});
+</script>
 @endsection
