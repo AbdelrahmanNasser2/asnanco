@@ -9,7 +9,7 @@
 			<br>
 			<br>
 		</div>
-		<a href=" {{ action('PurchaseController@show' , 1) }}" class="btn btn-primary">تحويل الىي اكسل</a>
+		<a href=" {{ action('PurchaseController@show' , 1) }}" class="btn btn-primary">تحويل الي اكسيل</a>
 	<table class="table table-bordered table-striped">
 		<thead>
 			<tr>
