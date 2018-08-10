@@ -27,3 +27,5 @@ Route::resource('Purchases', 'PurchaseController');
 
 Route::resource('RepairDevices', 'RepairDevicesController');
 
+Route::resource('Salary', 'SalaryController');
+
