@@ -2,6 +2,18 @@
 
 @section('content')
 <div class="row">
+	@if (Route::has('login'))
+        <div class="top-right links">
+            @if (Session::has('username'))
+                <a href="{{ url('/') }}">Home</a>
+                <a href="{{url('/logout')}}">Logout</a>
+            @else
+                <a href="{{ url('/login') }}">Login</a>
+            @endif
+        </div>
+    @endif
+    <br/>
+    <br/>
 	<h1 align="Center">المشتريات</h1>
 		<div align="right">
 			<a href="{{ action('PurchaseController@create') }}" class="btn btn-primary">اضافه مشترى جديد</a>

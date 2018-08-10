@@ -4,6 +4,17 @@
 
 <div class="row">
 	<div class="col-md-12">
+		@if (Route::has('login'))
+            <div class="top-right links">
+                @if (Session::has('username'))
+                    <a href="{{ url('/') }}">Home</a>
+                    <a href="{{url('/logout')}}">Logout</a>
+                @else
+                    <a href="{{ url('/login') }}">Login</a>
+                @endif
+            </div>
+        @endif
+		<br/>
 		<br/>
 		<h1 align="center">إضافة فاتورة صيانة اجهزه</h1>
 		<br/>
