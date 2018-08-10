@@ -34,6 +34,7 @@
     <div class="sufee-login d-flex align-content-center flex-wrap">
         <div class="container">
             <div class="login-content">
+            @if(!Session::has('username'))
                 <div class="login-logo">
                     <h1 style="color: white; font-family: 'Raleway';">ASNANCO</h1>
                     <br/>
@@ -58,6 +59,18 @@
                         <input type="submit" class="btn btn-success btn-flat m-b-30 m-t-30" value="Log in"/>
                     </form>
                 </div>
+            @else
+
+                <div class="login-logo" style="margin-top: 50%;">
+                    <h1 style="color: white; font-family: 'Raleway';">ASNANCO</h1>
+                    <br/>
+                    <div align="center">
+                        <h3 style="color: white; font-family: 'Raleway';">Soory You can't go to this page</h3>
+                    </div>
+                    
+                </div>
+
+            @endif
             </div>
         </div>
     </div>
@@ -71,3 +84,4 @@
 
 </body>
 </html>
+
