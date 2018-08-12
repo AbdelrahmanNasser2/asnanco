@@ -58,7 +58,7 @@
                 </div>
 
                 <div class="links">
-                    <a href="{{url('')}}" style="font-size: 18px;">قسم المرضى</a>
+                    <a href="{{url('Patients')}}" style="font-size: 18px;">قسم المرضى</a>
                     <a href="{{url('Purchases')}}" style="font-size: 18px;">المشتريات</a>
                     <a href="{{url('RepairDevices')}}" style="font-size: 18px;">صيانة الاجهزه</a>
                     @if(session('role') == 1)
