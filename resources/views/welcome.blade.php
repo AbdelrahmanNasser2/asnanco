@@ -64,7 +64,7 @@
                     @if(session('role') == 1)
                         <a href="{{url('Salary')}}" style="font-size: 18px;">المرتبات</a>
                     @endif
-                    <a href="{{url('')}}" style="font-size: 18px;">المعامل</a>
+                    <a href="{{url('Lab')}}" style="font-size: 18px;">المعامل</a>
                     @if(session('role') == 1)
                         <a href="{{url('Admin')}}" style="font-size: 18px;">وحده التحكم</a>
                     @endif
