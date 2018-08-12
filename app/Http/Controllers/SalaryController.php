@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Salary;
-
+use Excel;
+use App\Exports\SalaryExport;
 class SalaryController extends Controller
 {
     /**
@@ -23,7 +24,9 @@ class SalaryController extends Controller
 
         return view('Salary.index', compact('Salary'));
     }
-
+    public function show($id){
+        return Excel::download(new SalaryExport, 'salaries.xlsx');
+    }
     public function create()
     {
         return view('Salary.create');

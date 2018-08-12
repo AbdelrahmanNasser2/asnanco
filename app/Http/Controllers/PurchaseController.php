@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 use App\Exports\PurchaseExport;
+use Excel;
 use Illuminate\Http\Request;
 use App\Purchase;
-use Excel;
+
 class PurchaseController extends Controller
 {
     /**

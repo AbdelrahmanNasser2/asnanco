@@ -29,6 +29,14 @@ Route::resource('RepairDevices', 'RepairDevicesController');
 
 Route::resource('Salary', 'SalaryController');
 
+<<<<<<< HEAD
 Route::resource('Lab', 'LabController');
 
 Route::resource('Patients', 'PatientsController');
+=======
+
+Route::resource('Lab', 'LabController');
+
+Route::resource('Patients', 'PatientsController');
+
+>>>>>>> dacb9d55033a9deaa6116f4937132c9cae7ffadf

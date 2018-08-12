@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Exports\ReparDevicesExport;
+use Excel;
 use Illuminate\Http\Request;
 use App\Repair_Device;
 
@@ -74,7 +75,7 @@ class RepairDevicesController extends Controller
      */
     public function show($id)
     {
-        //
+        return Excel::download(new ReparDevicesExport, 'repairDevice.xlsx');
     }
 
     /**
