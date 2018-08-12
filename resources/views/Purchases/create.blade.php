@@ -8,7 +8,7 @@
 		{{csrf_field()}}
 		<div class="form-group">
 			<label style="float: right; font-size: 20px;">اسم المورد</label>
-			<input type="text" name="resource_name" class="form-control"> 
+			<input type="text" name="resource_name" class="form-control" style="text-align:right;"> 
 		</div>
 		<div class="form-group">
 			<label style="float: right; font-size: 20px; ">تاريخ الشراء</label>
@@ -16,15 +16,15 @@
 		</div>
 		<div class="form-group">
 			<label style="float: right; font-size: 20px;">اسم المشترى</label>
-			<input type="text" name="officer" class="form-control">
+			<input type="text" name="officer" class="form-control" style="text-align:right;">
 		</div>
 		<div class="form-group">
 			<label style="float: right; font-size: 20px;">التكلفة</label>
-			<input type="number" name="cost" class="form-control">
+			<input type="number" name="cost" class="form-control" style="text-align:right;">
 		</div>
 		<div class="form-group">
 			<label style="float: right; font-size: 20px;">تعليق</label>
-			<textarea rows="4" name="comment" class="form-control" placeholder="تعليق" style="resize:none;"></textarea>
+			<textarea rows="4" name="comment" class="form-control" placeholder="تعليق" style="resize:none;text-align:right;"></textarea>
 		</div>
 		
 

@@ -8,19 +8,24 @@
 		{{csrf_field()}}
 		{{ method_field('PATCH') }}
 		<div class="form-group">
-		<label style="float: right; font-size: 20px;">اسم المورد</label><input type="text" name="resource_name" class="form-control" value="{{ $purchase['resource_name']}}">
+			<label style="float: right; font-size: 20px;">اسم المورد</label>
+			<input type="text" name="resource_name" class="form-control" value="{{ $purchase['resource_name']}}" style="text-align:right;">
 		</div>
 		<div class="form-group">
-		<label style="float: right; font-size: 20px; ">تاريخ الشراء</label><input type="date" name="purchase_date" class="form-control" value="{{ $purchase['purchase_date']}}">
+			<label style="float: right; font-size: 20px; ">تاريخ الشراء</label>
+			<input type="date" name="purchase_date" class="form-control" value="{{ $purchase['purchase_date']}}">
 		</div>
 		<div class="form-group">
-		<label style="float: right; font-size: 20px;">اسم المشترى</label><input type="text" name="officer" class="form-control"  value="{{ $purchase['officer']}}"> 
+			<label style="float: right; font-size: 20px;">اسم المشترى</label>
+			<input type="text" name="officer" class="form-control"  value="{{ $purchase['officer']}}" style="text-align:right;"> 
 		</div>
 		<div class="form-group">
-		<label style="float: right; font-size: 20px;">التكلفة</label><input type="number" name="cost" class="form-control"  value="{{ $purchase['cost']}}">
+			<label style="float: right; font-size: 20px;">التكلفة</label>
+			<input type="number" name="cost" class="form-control"  value="{{ $purchase['cost']}}" style="text-align:right;">
 		</div>
 		<div class="form-group">
-		<label style="float: right; font-size: 20px;">تعليق</label><input type="textarea" name="comment" class="form-control"  value="{{ $purchase['comment']}}">
+			<label style="float: right; font-size: 20px;">تعليق</label>
+			<textarea rows="4" name="comment" class="form-control" placeholder="تعليق" style="resize:none; text-align:right;">{{ $purchase['comment']}}</textarea>
 		</div>
 
 		

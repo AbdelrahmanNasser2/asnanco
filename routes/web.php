@@ -29,3 +29,4 @@ Route::resource('RepairDevices', 'RepairDevicesController');
 
 Route::resource('Salary', 'SalaryController');
 
+Route::resource('Lab', 'LabController');
