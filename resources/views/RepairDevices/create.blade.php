@@ -20,7 +20,7 @@
 			{{csrf_field()}}
 			<div class="form-group">
 				<label style="float: right; font-size: 20px;">اسم شركة الصيانة</label>
-				<input type="text" name="companyName" class="form-control" placeholder="اسم شركة الصيانة" required="">
+				<input type="text" name="companyName" class="form-control" placeholder="اسم شركة الصيانة" required="" style="text-align:right;">
 			</div>
 			<div class="form-group">
 				<label style="float:right; font-size: 20px;">تاريخ ظهور العطل</label>
@@ -36,15 +36,15 @@
 			</div>
 			<div class="form-group">
 				<label style="float:right; font-size: 20px;">اسم المُتصل</label>
-				<input type="text" name="callerName" class="form-control" placeholder="اسم المُتصل" required="">
+				<input type="text" name="callerName" class="form-control" placeholder="اسم المُتصل" required="" style="text-align:right;">
 			</div>
 			<div class="form-group">
 				<label style="float: right; font-size: 20px;">التكلفة</label>
-				<input type="number" step="0.01" min="0" name="cost" class="form-control" placeholder="التكلفة" required="">
+				<input type="number" step="0.01" min="0" name="cost" class="form-control" placeholder="التكلفة" required="" style="text-align:right;">
 			</div>
 			<div class="form-group">
 				<label style="float:right; font-size: 20px;">تعليق</label>
-				<textarea rows="4" name="comment" class="form-control" placeholder="تعليق" style="resize:none;"></textarea>
+				<textarea rows="4" name="comment" class="form-control" placeholder="تعليق" style="resize:none; text-align:right;"></textarea>
 			</div>
 			<div class="form-group">
 				<input type="submit" name="submit" class="btn btn-primary col-md-4 col-md-offset-4" value="إضافة" style="font-size: 20px;">

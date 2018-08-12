@@ -4,8 +4,8 @@
 
 <div class="row">
 	<div class="col-md-12">
-		<br/>
-		<h1 align="center">مرتبات</h1>
+	@if(session('role') == 1)
+		<h3 align="center">مرتبات</h3>
 		<br/>
 		@if($message = Session::get('success'))
 		<div class="alert alert-success">
@@ -51,6 +51,9 @@
 				@endforeach
 			</tbody>
 		</table>
+	@else
+		@include('httpAuth')
+	@endif
 	</div>
 </div>
 <script type="text/javascript">

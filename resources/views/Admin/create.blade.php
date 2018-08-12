@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
 	<div class="col-md-12">
-
+	@if(session('role') == 1)
 		<h3 align="center">انشاء حساب جديد</h3>
 		<br>
 		@if(count($errors) > 0)
@@ -33,15 +33,18 @@
 			<div class="form-group" align="right">
 				<label for="male">: النوع</label>
 					<br>
-				Admin <input type="radio" name="Role_type" value="Admin" checked>
+				Admin <input type="radio" name="Role_type" value="1" checked>
 					<br>
-  				Regular User <input type="radio" name="Role_type" value="User">
+  				Regular User <input type="radio" name="Role_type" value="2">
   					<br>
 			</div>
 			<div class="form-group" align="right">
 				<input type="submit" class="btn btn-primary" />
 			</div>
 		</form>
+	@else
+		@include('httpAuth')
+	@endif
 	</div>
 </div>
 @endsection

@@ -1,9 +1,9 @@
 @extends('master')
 
 @section('content')
+@if(session('role') == 1)
 <div class="row">
 	<div class="col-md-12">
-
 		<h3 align="center">حسابات المستخدمين</h3>
 		<br>
 		@if($message = Session::get('success'))
@@ -27,7 +27,7 @@
 			</tr>
 			@foreach($users as $row)
 			<tr>
-				<td align="center">{{$row['Role_type']}}</td>
+				<td align="center">@if($row['Role_type'] == 1) {{"Admin"}} @else {{"User"}} @endif</td>
 				<td align="center">{{$row['Password']}}</td>
 				<td align="right">{{$row['UserName']}}</td>
 				<td align="center">
@@ -46,6 +46,9 @@
 		</table>
 	</div>
 </div>
+@else
+	@include('httpAuth')
+@endif
 <script>
 $(document).ready(function(){
 	$('.delete_form').on('submit', function(){

@@ -22,7 +22,7 @@
 
 			<div class="form-group">
 				<label style="float: right; font-size: 20px;">اسم شركة الصيانة</label>
-				<input type="text" name="companyName" class="form-control" placeholder="اسم شركة الصيانة" value="{{ $repairDevice['company_name'] }}" required="">
+				<input type="text" name="companyName" class="form-control" placeholder="اسم شركة الصيانة" value="{{ $repairDevice['company_name'] }}" required="" style="text-align:right;">
 			</div>
 			<div class="form-group">
 				<label style="float:right; font-size: 20px;">تاريخ ظهور العطل</label>
@@ -38,15 +38,15 @@
 			</div>
 			<div class="form-group">
 				<label style="float:right; font-size: 20px;">اسم المُتصل</label>
-				<input type="text" name="callerName" class="form-control" placeholder="اسم المُتصل" value="{{ $repairDevice['caller_name'] }}" required="">
+				<input type="text" name="callerName" class="form-control" placeholder="اسم المُتصل" value="{{ $repairDevice['caller_name'] }}" required="" style="text-align:right;">
 			</div>
 			<div class="form-group">
 				<label style="float: right; font-size: 20px;">التكلفة</label>
-				<input type="number" step="0.01" min="0" name="cost" class="form-control" placeholder="التكلفة" value="{{ $repairDevice['cost'] }}" required="">
+				<input type="number" step="0.01" min="0" name="cost" class="form-control" placeholder="التكلفة" value="{{ $repairDevice['cost'] }}" required="" style="text-align:right;">
 			</div>
 			<div class="form-group">
 				<label style="float:right; font-size: 20px;">تعليق</label>
-				<textarea rows="4" name="comment" class="form-control" placeholder="تعليق" style="resize:none;">{{ $repairDevice['comment'] }}</textarea>
+				<textarea rows="4" name="comment" class="form-control" placeholder="تعليق" style="resize:none; text-align:right;">{{ $repairDevice['comment'] }}</textarea>
 			</div>
 			<div class="form-group">
 				<input type="submit" name="submit" class="btn btn-primary col-md-4 col-md-offset-4" value="تعديل" style="font-size: 20px;">
