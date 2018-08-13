@@ -93,6 +93,27 @@ class LabController extends Controller
         return redirect()->route('Lab.index')->with('success', 'تم التعديل');
     }
 
+    public function search(Request $request)
+    {
+        $lab_name = $request->get('labName');
+        $receipt_date = $request->get('recieptDate');
+
+        $lab = Lab::where('lab_name', $lab_name)
+                    ->Where('receipt_date', $receipt_date)
+                    ->get();
+        if($lab)
+        {
+            return view('Lab.show', compact('lab'));
+        }
+    }
+
+    public function show($id)
+    {
+        $lab = Lab::find($id);
+        
+        return view('Lab.show', compact('lab'));
+    }
+
     public function destroy($id)
     {
         $lab = Lab::find($id);

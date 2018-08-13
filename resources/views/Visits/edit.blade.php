@@ -4,7 +4,7 @@
 
 <div class="row">
 	<div class="col-md-12">
-		<h3 align="center">إضافة زياره</h3>
+		<h3 align="center">تعديل زياره</h3>
 		<br/>
 		@if(count($errors) > 0)
 		<div class="alert alert-danger">
@@ -40,7 +40,7 @@
 				<textarea name="comment" rows="4" class="form-control" placeholder="تعليق" style="resize: none;">{{ $visit['comment'] }}</textarea>
 			</div>
 			<div class="form-group">
-				<input type="submit" name="submit" class="btn btn-primary col-md-4 col-md-offset-4" value="إضافة" style="font-size: 20px;">
+				<input type="submit" name="submit" class="btn btn-primary col-md-4 col-md-offset-4" value="تعديل" style="font-size: 20px;">
 			</div>
 		</form>
 		<br/>

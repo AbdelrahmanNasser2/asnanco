@@ -4,7 +4,6 @@
 
 <div class="row">
 	<div class="col-md-12">
-
 		<h3 align="center">المعامل</h3>
 		<br/>
 		@if($message = Session::get('success'))
@@ -17,34 +16,22 @@
 			<br/>
 			<br/>
 		</div>
-		<table class="table table-bordered table-striped">
-			<thead>
-				<th style="text-align: center;">تعديل/حذف</th>
-				<th style="text-align: center;">صورة</th>
-				<th style="text-align: center;">التكلفه</th>
-				<th style="text-align: center;">تاريخ الأستلام</th>
-				<th style="text-align: center;">تاريخ التسليم</th>
-				<th style="text-align: center;">اسم المعمل</th>
-			</thead>
-			<tbody>
-				@foreach($labs as $lab)
-				<td style="text-align: center;">
-					<form method="post" action="{{action('LabController@destroy', $lab['id'])}}" id="delete_form" style="display: inline;">
-						{{ csrf_field() }}
-						{{ method_field('DELETE') }}
-						<button type="submit" class="btn btn-danger">حذف</button>
-						
-					</form>
-					<a href="{{action('LabController@edit', $lab['id'])}}" class="btn btn-success">تعديل</a>
-				</td>
-				<td style="text-align: center;"><img src="/images/{{$lab['img_name']}}" width="100" height="100" /></td>
-				<td style="text-align: center;">{{$lab['cost']}}</td>
-				<td style="text-align: center;">{{$lab['receipt_date']}}</td>
-				<td style="text-align: center;">{{$lab['delivery_date']}}</td>
-				<td style="text-align: center;">{{$lab['lab_name']}}</td>
-				@endforeach
-			</tbody>
-		</table>
+		<form method="post" action="{{ action('LabController@search') }}">
+			{{csrf_field()}}
+			
+			<div class="form-group">
+				<label style="float: right; font-size: 20px;">اسم المعمل</label>
+				<input type="text" name="labName" class="form-control" placeholder="اسم المعمل" required="" style="text-align:right;">
+			</div>
+
+			<div class="form-group">
+				<label style="float:right; font-size: 20px;">تاريخ الأستلام</label>
+				<input type="date" name="recieptDate" class="form-control" placeholder="تاريخ الأستلام" required="">
+			</div>
+			<div class="form-group">
+				<input type="submit" name="submit" class="btn btn-primary col-md-4 col-md-offset-4" value="بحث" style="font-size: 20px;">
+			</div>
+		</form>
 	</div>
 </div>
 <script type="text/javascript">

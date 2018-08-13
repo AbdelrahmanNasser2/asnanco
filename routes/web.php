@@ -31,6 +31,8 @@ Route::resource('Salary', 'SalaryController');
 
 Route::resource('Lab', 'LabController');
 
+Route::post('Lab/search', 'LabController@search');
+
 Route::resource('Patients', 'PatientsController');
 
 Route::post('Patients/fetch', 'PatientsController@fetch');
