@@ -1,7 +1,14 @@
 @extends('master')
 
 @section('content')
-
+<style type="text/css">
+	li a{
+		color: #000;
+	}
+	li a:hover{
+		color: #0275d8;
+	}
+</style>
 <div class="row">
 	<div class="col-md-12">
 		<h3 align="center">المرضى</h3>
@@ -13,7 +20,7 @@
 		@endif
 		<div class="col-md-4"></div>
 		<div align="center" class="form-group col-md-4">
-			<textarea class="form-control" name="search" id="search" rows="1" style="resize: none;" placeholder="بحث"></textarea>
+			<input class="form-control" name="search" id="search" placeholder="بحث"/>
 			<div id="searchList"></div>
 			{{ csrf_field() }}
 		</div>
@@ -32,7 +39,7 @@
 
 				var _token = $('input[name="_token"]').val();
 				$.ajax({
-					url: "{{ route('Patients.fetch') }}",
+					url: "{{ url('/') }}" + "/Patients/fetch",
 					method:"POST",
 					data:{query:query , _token:_token},
 					success:function(data){
