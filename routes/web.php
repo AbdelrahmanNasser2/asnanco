@@ -29,8 +29,21 @@ Route::resource('RepairDevices', 'RepairDevicesController');
 
 Route::resource('Salary', 'SalaryController');
 
-
 Route::resource('Lab', 'LabController');
 
+Route::post('Lab/search', 'LabController@search');
+
 Route::resource('Patients', 'PatientsController');
+
+Route::post('Patients/fetch', 'PatientsController@fetch');
+
+Route::get('Visits/create/{patient_id}' , 'PatientsController@createVisit')->name('Visits.create');
+
+Route::post('Visits/store' , 'PatientsController@storeVisit')->name('Visits.store');
+
+Route::get('Visits/delete/{id}', 'PatientsController@deleteVisit')->name('Visits.delete');
+
+Route::get('Visits/edit/{id}', 'PatientsController@editVisit')->name('Visits.edit');
+
+Route::post('Visits/update/{id}', 'PatientsController@updateVisit')->name('Visits.update');
 

@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Asnanco</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -64,7 +64,7 @@
                     @if(session('role') == 1)
                         <a href="{{url('Salary')}}" style="font-size: 18px;">المرتبات</a>
                     @endif
-                    <a href="{{url('')}}" style="font-size: 18px;">المعامل</a>
+                    <a href="{{url('Lab')}}" style="font-size: 18px;">المعامل</a>
                     @if(session('role') == 1)
                         <a href="{{url('Admin')}}" style="font-size: 18px;">وحده التحكم</a>
                     @endif
