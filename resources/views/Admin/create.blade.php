@@ -39,7 +39,7 @@
   					<br>
 			</div>
 			<div class="form-group" align="right">
-				<input type="submit" class="btn btn-primary" />
+				<input type="submit" class="btn btn-primary" value="اضافه" />
 			</div>
 		</form>
 	@else

@@ -4,6 +4,11 @@
 <div class="row">
 
 	<h3 align="Center">المعامل</h3>
+		<div align="right">
+			<a href="{{url('Lab')}}" class="btn btn-primary">الرجوع</a>
+			<br/>
+			<br/>
+		</div>
 		<table class="table table-bordered table-striped">
 		<thead>
 			
