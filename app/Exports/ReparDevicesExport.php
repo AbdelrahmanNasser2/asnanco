@@ -16,19 +16,19 @@ class ReparDevicesExport implements FromCollection
 
     public function collection()
     {
+        $reverse = array('تعليق','التكلفه	','اسم المُتصل	','تاريخ زيارة الشركه	','تاريخ ابلاغ العطل	','تاريخ ظهور العطل	','اسم شركة الصيانه');
         
-    	$c = collect([['تعليق','التكلفه	','المٌتصل اسم','الشركة زيارة تاريخ','العطل ابلاغ تاريخ','العطل ظهور تاريخ','الصيانة شركة اسم']]);
+        $reverse = array_reverse($reverse);
+    	
+    	$c = collect([$reverse]);
+    	
     	$repairs_array = Repair_Device::all();
-    	$i = 0;
-    	$arr = array();
+
     	foreach ($repairs_array as $value) {
+    	
     		$repair = new Repair_Device();
-    		if (!preg_match('/[^A-Za-z0-9]/', $value['company_name'])) {
-  					// string contains only english letters & digits
-  					$repair->company_name = $value['company_name'];
-				}else{
-					$repair->company_name = $this->toarabic($value['company_name']);
-				}
+    		
+			$repair->company_name = $value['company_name'];
 
 	        $repair->appearience_date = $value['appearience_date'];
 	       
@@ -36,41 +36,17 @@ class ReparDevicesExport implements FromCollection
 	       
 	        $repair->visit_date = $value['visit_date'];
 	       
-	        if (!preg_match('/[^A-Za-z0-9]/', $value['caller_name'])){
-  					// string contains only english letters & digits
-  					$repair->caller_name = $value['caller_name'];
-				}else{
-					$repair->caller_name = $this->toarabic($value['caller_name']);
-				}
-	       
+			$repair->caller_name = $value['caller_name'];
+		
 	        $repair->cost = $value['cost'];
 
-	        if (!preg_match('/[^A-Za-z0-9]/', $value['comment'])) // '/[^a-z\d]/i' should also work.
-				{
-  					// string contains only english letters & digits
-  					$repair->comment = $value['comment'];
-
-				}else{
-					$repair->comment = $this->toarabic($value['comment']);
-				}
-				
-	        //$repair->comment = $this->toarabic($value['comment']);
-				$c = $c->concat([$repair]);
+			$repair->comment = $value['comment'];
+			
+			$c = $c->concat([$repair]);
 
     	}
-
-    	//$c->dd();
     	return $c;
     }
 
 
-   public function toarabic($string){
-    	$string1 = "";
-    	$separated = explode(' ',$string);
-	    $reversed = array_reverse($separated);
-		foreach ($reversed as $key) {
-	        $string1 .= $key." ";
-		}
-	        return $string1;
-    }
 }
