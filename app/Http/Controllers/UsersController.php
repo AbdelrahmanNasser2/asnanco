@@ -51,7 +51,7 @@ class UsersController extends Controller
 
         $user->save();
 
-        return redirect()->route('Admin.index')->with('success', 'Data Added');
+        return redirect()->route('Admin.index')->with('success', 'تمت الأضافه');
     }
 
     /**
@@ -99,8 +99,7 @@ class UsersController extends Controller
         $user->Role_type = $request->get('Role_type');
         $user->save();
 
-        return redirect()->route('Admin.index')->with(
-            'success', 'Data Updated');
+        return redirect()->route('Admin.index')->with('success', 'تم التعديل');
     }
 
     /**
@@ -113,6 +112,6 @@ class UsersController extends Controller
     {
         $user = Users::find($id);
         $user->delete();
-        return redirect()->route('Admin.index')->with('success', 'Account Deleted');
+        return redirect()->route('Admin.index')->with('success', 'تم الحذف');
     }
 }

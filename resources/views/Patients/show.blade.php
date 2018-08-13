@@ -48,6 +48,7 @@
 			</tr>
 			<tr>
 				<td style="text-align: center;">
+					@if(session('role') == 1)
 					<form method="post" action="{{action('PatientsController@destroy' , $patient['id'] )}}" id="delete_form" style="display: inline;">
 						{{ csrf_field() }}
 						{{ method_field('DELETE') }}
@@ -55,6 +56,7 @@
 						
 					</form>
 					<a href="{{ action('PatientsController@edit' , $patient['id'] ) }}" class="btn btn-success">تعديل</a>
+					@endif
 					<a href="{{ route('Visits.create' , $patient['id'] ) }}" class="btn btn-primary">إضافة زياره</a>
 				</td>
 				<td style="text-align: center;"></td>
@@ -67,7 +69,9 @@
 	<div class="row">
 		<table class="table table-bordered table-striped">
 			<thead>
+				@if(session('role') == 1)
 				<th style="text-align: center;">تعديل / حذف</th>
+				@endif
 				<th style="text-align: center;">التعليق</th>
 				<th style="text-align: center;">المتبقي</th>
 				<th style="text-align: center;">المدفوع</th>
@@ -77,6 +81,7 @@
 			<tbody>
 			@foreach($visits as $visit)
 				<tr>
+					@if(session('role') == 1)
 					<td style="text-align: center;">
 						<form method="delete" action="{{route('Visits.delete' , $visit['id'] )}}" id="delete_visit" style="display: inline;">
 							{{ csrf_field() }}
@@ -85,6 +90,7 @@
 						</form>
 						<a href="{{ route('Visits.edit' , $visit['id'] ) }}" class="btn btn-success">تعديل</a>
 					</td>
+					@endif
 					<td style="text-align: center;">{{ $visit['comment'] }}</td>
 					<td style="text-align: center;">{{ $visit['remain'] }}</td>
 					<td style="text-align: center;">{{ $visit['paid'] }}</td>

@@ -4,7 +4,7 @@
 <div class="row">
 	<div class="col-md-12">
 	@if(session('role') == 1)
-		<h3 align="center">انشاء حساب جديد</h3>
+		<h3 align="center">اضافه حساب جديد</h3>
 		<br>
 		@if(count($errors) > 0)
 		<div class="alert alert-danger">
@@ -17,7 +17,7 @@
 		@endif
 		
 		@if(\Session::has('success'))
-		<div class="alert alert-success">
+		<div class="alert alert-success" style="text-align:right;">
 			<p>{{ \Session::get('success') }}</p>
 		</div>
 		@endif

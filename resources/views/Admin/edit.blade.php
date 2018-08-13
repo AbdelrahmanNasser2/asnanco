@@ -21,26 +21,21 @@
 			{{csrf_field()}}
 			<input type="hidden" name="_method" value="PATCH" />
 			<div class="form-group">
-				<input type="text" name="UserName" 
-				class="form-control" value="{{$user->
-				UserName}}" placeholder="الأسم" style="text-align:right;" />
+				<input type="text" name="UserName" class="form-control" value="{{$user->UserName}}" placeholder="الأسم" style="text-align:right;" />
 			 </div>
 			<div class="form-group">
-				<input type="Password" name="Password" 
-				class="form-control" value="{{$user->
-				Password}}" placeholder="كلمة السر" style="text-align:right;" />
+				<input type="Password" name="Password" class="form-control" value="{{$user->Password}}" placeholder="كلمة السر" style="text-align:right;" />
 			</div>
 			<div class="form-group" align="right">
 				<label for="male" >: النوع</label>
 					<br>
-				Admin <input type="radio" name="Role_type" value="Admin" checked>
+				Admin <input type="radio" name="Role_type" value="1" checked>
 					<br>
-  				Regular User <input type="radio" name="Role_type" value="User">
+  				Regular User <input type="radio" name="Role_type" value="2">
   					<br>
 			</div>
 			<div class="form-group" align="right">
-				<input type="submit" class="btn 
-				btn-primary" value="تعديل" />
+				<input type="submit" class="btn btn-primary" value="تعديل" />
 			</div>
 		</form>
 	@else

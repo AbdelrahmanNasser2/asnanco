@@ -7,7 +7,7 @@
 		<h3 align="center">حسابات المستخدمين</h3>
 		<br>
 		@if($message = Session::get('success'))
-		<div class="alert alert-success">
+		<div class="alert alert-success" style="text-align:right;">
 			<p>{{$message}}</p>
 		</div>
 		@endif
@@ -18,29 +18,25 @@
 
 		</div>
 		<table class="table table-bordered table-striped">
-			<tr>
+			<thead>
+				<th style="text-align:center;">تعديل / حذف</th>
 				<th style="text-align:center;">النوع</th>
 				<th style="text-align:center;">كلمة السر</th>
 				<th style="text-align:center;">الأسم</th>
-				<th style="text-align:center;">تعديل</th>
-				<th style="text-align:center;">حذف الحساب</th>
-			</tr>
+			</thead>
 			@foreach($users as $row)
 			<tr>
+				<td align="center">
+					<form method="post" class="delete_form" action="{{action('UsersController@destroy', $row['id'])}}" style="display: inline;">
+					 	{{csrf_field()}}
+					 	{{ method_field('DELETE') }} 
+					 	<input type="submit" value="حذف" class="btn btn-danger">
+					</form>
+					<a href="{{action('UsersController@edit', $row['id'])}}" class="btn btn-success">تعديل</a>
+				</td>
 				<td align="center">@if($row['Role_type'] == 1) {{"Admin"}} @else {{"User"}} @endif</td>
 				<td align="center">{{$row['Password']}}</td>
 				<td align="right">{{$row['UserName']}}</td>
-				<td align="center">
-					<a href="{{action('UsersController@edit', $row['id'])}}" class="btn btn-warning">تعديل</a>
-				</td>
-				<td align="center">
-					<form method="post" class="delete_form" 
-					action="{{action('UsersController@destroy', $row['id'])}}">
-					 	{{csrf_field()}}
-					 	<input type="hidden" name="_method" value="DELETE" >
-					 	<button type="submit" class="btn btn-danger">حذف</button>
-					</form>
-				</td>
 			</tr>
 			@endforeach
 		</table>
@@ -52,7 +48,8 @@
 <script>
 $(document).ready(function(){
 	$('.delete_form').on('submit', function(){
-		if(confirm("Are you sure you want to delete it ?"))
+		var con = confirm("هل تريد حذف الحساب ؟");
+		if(con)
 		{
 			return true;
 		}

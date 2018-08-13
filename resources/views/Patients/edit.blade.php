@@ -4,6 +4,7 @@
 
 <div class="row">
 	<div class="col-md-12">
+	@if(session('role') == 1)
 		<h3 align="center">تعديل مريض</h3>
 		<br/>
 		@if(count($errors) > 0)
@@ -56,6 +57,9 @@
 		<br/>
 		<br/>
 		<br/>
+	@else
+		@include('httpAuth')
+	@endif
 	</div>
 </div>
 

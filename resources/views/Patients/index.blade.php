@@ -26,6 +26,7 @@
 		</div>
 		<div align="right">
 			<a href="{{route('Patients.create')}}" class="btn btn-primary">إضافة مريض</a>
+			<!-- 7777oooooootttttttttt link el excel hena -->
 			<br/>
 			<br/>
 		</div>
