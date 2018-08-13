@@ -49,11 +49,11 @@
                         {{csrf_field()}}
                         <div class="form-group">
                             <label>User Name</label>
-                            <input type="text" name="username" class="form-control" placeholder="User Name" required="">
+                            <input type="text" name="username" class="form-control" placeholder="User Name" required="" style="text-align:right;">
                         </div>
                         <div class="form-group">
                             <label>Password</label>
-                            <input type="password" name="password" class="form-control" placeholder="Password" required="">
+                            <input type="password" name="password" class="form-control" placeholder="Password" required="" style="text-align:right;">
                         </div>
 
                         <input type="submit" class="btn btn-success btn-flat m-b-30 m-t-30" value="Log in"/>

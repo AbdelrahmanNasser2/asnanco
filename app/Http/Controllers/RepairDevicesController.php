@@ -15,12 +15,12 @@ class RepairDevicesController extends Controller
      */
     public function index()
     {
-        $repairDevices = Repair_Device::all()->toArray();
+        $repairDevice = Repair_Device::all();
 
-        if($repairDevices)
-            $repairDevice = array($repairDevices[sizeof($repairDevices)-1]);
-        else
-            $repairDevice = array();
+        // if($repairDevices)
+        //     $repairDevice = array($repairDevices[sizeof($repairDevices)-1]);
+        // else
+        //     $repairDevice = array();
 
         return view('RepairDevices.index', compact('repairDevice'));
     }
@@ -44,27 +44,33 @@ class RepairDevicesController extends Controller
     public function store(Request $request)
     {
         $this->validate($request , [
-            'companyName' => 'required',
+            'companyName'     => 'required',
             'appearienceDate' => 'required | date',
-            'callDate' => 'required | date',
-            'visitDate' => 'required | date',
-            'callerName' => 'required',
-            'cost' => 'required | numeric'
+            'callDate'        => 'required | date',
+            'visitDate'       => 'required | date',
+            'callerName'      => 'required',
+            'cost'            => 'required | numeric',
+            'comment'         => 'required'
         ]);
 
         $repairDevice = new Repair_Device([
-            'company_name' => $request->get('companyName'),
+            'company_name'     => $request->get('companyName'),
             'appearience_date' => $request->get('appearienceDate'),
-            'call_date' => $request->get('callDate'),
-            'visit_date' => $request->get('visitDate'),
-            'caller_name' => $request->get('callerName'),
-            'cost' => $request->get('cost'),
-            'comment' => $request->get('comment')
+            'call_date'        => $request->get('callDate'),
+            'visit_date'       => $request->get('visitDate'),
+            'caller_name'      => $request->get('callerName'),
+            'cost'             => $request->get('cost'),
+            'comment'          => $request->get('comment')
         ]);
 
         $repairDevice->save();
 
-        return redirect()->route('RepairDevices.index')->with('success', 'تم إضافة الفاتورة');
+        if($request->session()->has('role')){
+            if(session('role') == 1)
+                return redirect()->route('RepairDevices.index')->with('success', 'تم إضافة الفاتورة');
+            else
+                return redirect('/')->with('success', 'تم إضافة الفاتورة');
+        }
     }
 
     /**
@@ -101,27 +107,33 @@ class RepairDevicesController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request , [
-            'companyName' => 'required',
+            'companyName'     => 'required',
             'appearienceDate' => 'required | date',
-            'callDate' => 'required | date',
-            'visitDate' => 'required | date',
-            'callerName' => 'required',
-            'cost' => 'required | numeric'
+            'callDate'        => 'required | date',
+            'visitDate'       => 'required | date',
+            'callerName'      => 'required',
+            'cost'            => 'required | numeric',
+            'comment'         => 'required'
         ]);
 
         $repairDevice = Repair_Device::find($id);
 
-        $repairDevice->company_name = $request->get('companyName');
+        $repairDevice->company_name     = $request->get('companyName');
         $repairDevice->appearience_date = $request->get('appearienceDate');
-        $repairDevice->call_date = $request->get('callDate');
-        $repairDevice->visit_date = $request->get('visitDate');
-        $repairDevice->caller_name = $request->get('callerName');
-        $repairDevice->cost = $request->get('cost');
-        $repairDevice->comment = $request->get('comment');
+        $repairDevice->call_date        = $request->get('callDate');
+        $repairDevice->visit_date       = $request->get('visitDate');
+        $repairDevice->caller_name      = $request->get('callerName');
+        $repairDevice->cost             = $request->get('cost');
+        $repairDevice->comment          = $request->get('comment');
 
         $repairDevice->save();
 
-        return redirect()->route('RepairDevices.index')->with('success', 'تم التعديل');
+        if($request->session()->has('role')){
+            if(session('role') == 1)
+                return redirect()->route('RepairDevices.index')->with('success', 'تم التعديل');
+            else
+                return redirect('/')->with('success', 'تم تعديل الفاتورة');
+        }
     }
 
     /**

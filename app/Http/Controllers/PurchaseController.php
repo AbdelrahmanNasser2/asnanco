@@ -16,14 +16,15 @@ class PurchaseController extends Controller
     public function index()
     {
         $purchases = Purchase::all();
-        if(sizeof($purchases) >= 1){
-                $siz = sizeof($purchases);
-                $purchase = array($purchases[$siz-1]);  
-                return view('Purchases.index')->with('purchases',$purchase);
-        }else{
 
-                return view('Purchases.index')->with('purchases',$purchases);
-        }
+        // if(sizeof($purchases) >= 1){
+        //         $siz = sizeof($purchases);
+        //         $purchase = array($purchases[$siz-1]);  
+        //         return view('Purchases.index')->with('purchases',$purchase);
+        // }else{
+
+        return view('Purchases.index', compact('purchases'));
+        //}
     
     }
 
@@ -34,7 +35,6 @@ class PurchaseController extends Controller
      */
     public function create()
     {
-
         return view('Purchases.create');
     }
         
@@ -46,23 +46,28 @@ class PurchaseController extends Controller
      */
     public function store(Request $request)
     {
-
           $this->validate($request, [
             'resource_name'  => 'required',
             'purchase_date'  => 'required',
-            'cost' => 'required',
-            'comment'  => 'required',
-            'officer' => 'required'
+            'cost'           => 'required',
+            'comment'        => 'required',
+            'officer'        => 'required'
         ]);
 
         $purchase = new Purchase();
         $purchase->resource_name = $request->get('resource_name');
         $purchase->purchase_date = $request->get('purchase_date');
-        $purchase->cost = $request->get('cost');
-        $purchase->comment = $request->get('comment');
-        $purchase->officer = $request->get('officer');
+        $purchase->cost          = $request->get('cost');
+        $purchase->comment       = $request->get('comment');
+        $purchase->officer       = $request->get('officer');
         $purchase->save();
-        return redirect('Purchases');
+
+        if($request->session()->has('role')){
+            if(session('role') == 1)
+                return redirect('Purchases')->with('success', 'تم إضافة الفاتورة');
+            else
+                return redirect('/')->with('success', 'تم إضافة الفاتورة');
+        }
     }
 
     /**
@@ -73,26 +78,7 @@ class PurchaseController extends Controller
      */
     public function show($id)
     {
-        // $purchases = Purchase::all();
-        // $purchases_array = array('اسم المشترى','تعليق  ','التكلفة','تاريخ الشراء','اسم المورد' );
-        // foreach ($purchases as $purchase) {
-        //        $purchases_array[] = array('اسم المشترى' => $purchase["resource_name"],
-        //         'تعليق' => $purchase["comment"],
-        //         'التكلفة' => $purchase["cost"],
-        //         'تاريخ الشراء' => $purchase["purchase_date"],
-        //         'اسم المورد' => $purchase["officer"]);
-        //    }   
-        //    Excel::create('Purchase Data',function($excel) use( $purchases_array) {
-        //         $excel->setTitle('Purchase Data');
-        //         $excel->sheet('Purchase Data' ,function($sheet) use($purchases_array){
-        //             $sheet->fromArray($purchases_array,null,'A1',false,false);
-        //         });
-        //    })->download('xlsx');
-
-        //return redirect('Purchases');
-
         return Excel::download(new PurchaseExport, 'purchase.xlsx');
-
     }
 
     /**
@@ -104,6 +90,7 @@ class PurchaseController extends Controller
     public function edit($id)
     {
         $purchase = Purchase::find($id);
+
         return view("Purchases.edit")->with('purchase',$purchase);
     }
 
@@ -119,9 +106,9 @@ class PurchaseController extends Controller
             $this->validate($request, [
             'resource_name'  => 'required',
             'purchase_date'  => 'required',
-            'cost' => 'required',
-            'comment'  => 'required',
-            'officer' => 'required'
+            'cost'           => 'required',
+            'comment'        => 'required',
+            'officer'        => 'required'
         ]);
 
         $purchase = Purchase::find($id);
@@ -132,7 +119,12 @@ class PurchaseController extends Controller
         $purchase->officer = $request->get('officer');
         $purchase->save();
 
-        return redirect('Purchases');
+        if($request->session()->has('role')){
+            if(session('role') == 1)
+                return redirect('Purchases')->with('success', 'تم تعديل الفاتورة');
+            else
+                return redirect('/')->with('success', 'تم تعديل الفاتورة');
+        }
     }
 
     /**
@@ -144,7 +136,7 @@ class PurchaseController extends Controller
     public function destroy($id)
     {
         Purchase::destroy($id);
-        return redirect('Purchases');
+        return redirect('Purchases')->with('success', 'تم الحذف');
     }
 
     public function excel()

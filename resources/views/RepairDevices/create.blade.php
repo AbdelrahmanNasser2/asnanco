@@ -1,7 +1,6 @@
 @extends('master')
 
 @section('content')
-
 <div class="row">
 	<div class="col-md-12">
 
@@ -16,7 +15,7 @@
 				</ul>
 			</div>
 		@endif
-		<form method="post" action="{{ url('RepairDevices') }}">
+		<form method="post" action="{{ action('RepairDevicesController@store')}}">
 			{{csrf_field()}}
 			<div class="form-group">
 				<label style="float: right; font-size: 20px;">اسم شركة الصيانة</label>
@@ -44,7 +43,7 @@
 			</div>
 			<div class="form-group">
 				<label style="float:right; font-size: 20px;">تعليق</label>
-				<textarea rows="4" name="comment" class="form-control" placeholder="تعليق" style="resize:none; text-align:right;"></textarea>
+				<textarea rows="4" name="comment" class="form-control" placeholder="تعليق" required="" style="resize:none; text-align:right;"></textarea>
 			</div>
 			<div class="form-group">
 				<input type="submit" name="submit" class="btn btn-primary col-md-4 col-md-offset-4" value="إضافة" style="font-size: 20px;">

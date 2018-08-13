@@ -15,18 +15,15 @@ class SalaryController extends Controller
      */
     public function index()
     {
-        $salary = Salary::all()->toArray();
-
-        if($salary)
-            $Salary = array($salary[sizeof($salary)-1]);
-        else
-            $Salary = array();
+        $Salary = Salary::all();
 
         return view('Salary.index', compact('Salary'));
     }
+
     public function show($id){
         return Excel::download(new SalaryExport, 'salaries.xlsx');
     }
+    
     public function create()
     {
         return view('Salary.create');

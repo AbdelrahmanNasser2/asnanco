@@ -14,7 +14,7 @@
 		<h3 align="center">المرضى</h3>
 		<br/>
 		@if($message = Session::get('success'))
-		<div class="alert alert-success">
+		<div class="alert alert-success" align="right">
 			<p>{{$message}}</p>
 		</div>
 		@endif

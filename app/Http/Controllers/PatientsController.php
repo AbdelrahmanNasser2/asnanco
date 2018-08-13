@@ -38,11 +38,12 @@ class PatientsController extends Controller
     public function store(Request $request)
     {
         $this->validate($request , [
-            'name' => 'required',
-            'phone' => 'required | numeric',
-            'address' => 'required',
+            'name'              => 'required',
+            'phone'             => 'required | numeric',
+            'address'           => 'required',
             'general_diagnosis' => 'required',
-            'job' => 'required'
+            'job'               => 'required',
+            'other_diseases'    => 'required'
         ]);
 
         $patient = new Patient();
@@ -118,11 +119,12 @@ class PatientsController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request , [
-            'name' => 'required',
-            'phone' => 'required | numeric',
-            'address' => 'required',
+            'name'              => 'required',
+            'phone'             => 'required | numeric',
+            'address'           => 'required',
             'general_diagnosis' => 'required',
-            'job' => 'required'
+            'job'               => 'required',
+            'other_diseases'    => 'required'
         ]);
 
         $patient = Patient::find($id);
@@ -166,10 +168,11 @@ class PatientsController extends Controller
     public function storeVisit(Request $request){
 
         $this->validate($request, [
-            'drname' => 'required',
+            'drname'     => 'required',
             'visit_date' => 'required | date',
-            'paid' => 'required | numeric',
-            'remain' => 'required | numeric'
+            'paid'       => 'required | numeric',
+            'remain'     => 'required | numeric',
+            'comment'    => 'required'
         ]);
 
         $visit = new Visit();
@@ -205,10 +208,11 @@ class PatientsController extends Controller
     public function updateVisit(Request $request, $id){
 
         $this->validate($request, [
-            'drname' => 'required',
+            'drname'     => 'required',
             'visit_date' => 'required | date',
-            'paid' => 'required | numeric',
-            'remain' => 'required | numeric'
+            'paid'       => 'required | numeric',
+            'remain'     => 'required | numeric',
+            'comment'    => 'required'
         ]);
 
         $visit = Visit::find($id);

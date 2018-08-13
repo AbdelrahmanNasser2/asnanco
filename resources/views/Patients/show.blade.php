@@ -11,6 +11,16 @@
 			<p>{{ $message }}</p>
 		</div>
 		@endif
+		<div align="right">
+			<h3 align="center">ملف المريض</h3>
+			<br/>
+			<br/>
+		</div>
+		<div align="right">
+			<a href="{{url('Patients')}}" class="btn btn-primary">الرجوع</a>
+			<br/>
+			<br/>
+		</div>
 		<table class="table table-bordered table-striped">
 			<tr>
 				<td style="text-align: center;">{{ $patient['name'] }}</td>
@@ -55,44 +65,35 @@
 </div>
 	@if($visits)
 	<div class="row">
-		@foreach($visits as $visit)
-		<div class="col-md-6">
-			<table class="table table-bordered table-striped">
+		<table class="table table-bordered table-striped">
+			<thead>
+				<th style="text-align: center;">تعديل / حذف</th>
+				<th style="text-align: center;">التعليق</th>
+				<th style="text-align: center;">المتبقي</th>
+				<th style="text-align: center;">المدفوع</th>
+				<th style="text-align: center;">تاريخ الزياره</th>
+				<th style="text-align: center;">اسم الدكتور</th>
+			</thead>
+			<tbody>
+			@foreach($visits as $visit)
 				<tr>
-					<td style="text-align: center;">{{ $visit['dr_name'] }}</td>
-					<td style="text-align: center;">اسم الدكتور</td>
-				</tr>
-				<tr>
-					<td style="text-align: center;">{{ $visit['visit_date'] }}</td>
-					<td style="text-align: center;">تاريخ الزياره</td>
-				</tr>
-				<tr>
-					<td style="text-align: center;">{{ $visit['paid'] }}</td>
-					<td style="text-align: center;">المدفوع</td>
-				</tr>
-				<tr>
-					<td style="text-align: center;">{{ $visit['remain'] }}</td>
-					<td style="text-align: center;">المتبقي</td>
-				</tr>
-				<tr>
+					<td style="text-align: center;">
+						<form method="delete" action="{{route('Visits.delete' , $visit['id'] )}}" id="delete_visit" style="display: inline;">
+							{{ csrf_field() }}
+							{{ method_field('DELETE') }}
+							<button type="submit" class="btn btn-danger">حذف</button>
+						</form>
+						<a href="{{ route('Visits.edit' , $visit['id'] ) }}" class="btn btn-success">تعديل</a>
+					</td>
 					<td style="text-align: center;">{{ $visit['comment'] }}</td>
-					<td style="text-align: center;">التعليق</td>
+					<td style="text-align: center;">{{ $visit['remain'] }}</td>
+					<td style="text-align: center;">{{ $visit['paid'] }}</td>
+					<td style="text-align: center;">{{ $visit['visit_date'] }}</td>
+					<td style="text-align: center;">{{ $visit['dr_name'] }}</td>
 				</tr>
-				<tr>
-				<td style="text-align: center;">
-					<form method="delete" action="{{route('Visits.delete' , $visit['id'] )}}" id="delete_visit" style="display: inline;">
-						{{ csrf_field() }}
-						{{ method_field('DELETE') }}
-						<button type="submit" class="btn btn-danger">حذف</button>
-						
-					</form>
-					<a href="{{ route('Visits.edit' , $visit['id'] ) }}" class="btn btn-success">تعديل</a>
-				</td>
-				<td style="text-align: center;"></td>
-			</tr>
-			</table>
-		</div>
-		@endforeach
+			@endforeach
+			</tbody>
+		</table>	
 	</div>
 	@endif
 <script type="text/javascript">

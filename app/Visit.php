@@ -8,7 +8,7 @@ class Visit extends Model
 {
     //
 
-	protected $fillable = ['dr_name' , 'visit_date' , 'paid' , 'remain' , 'patient_id'];
+	protected $fillable = ['dr_name' , 'visit_date' , 'paid' , 'remain', 'comment' , 'patient_id'];
 
     public function patient()
     {

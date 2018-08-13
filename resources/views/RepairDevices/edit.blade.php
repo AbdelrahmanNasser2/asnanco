@@ -1,10 +1,9 @@
 @extends('master')
 
 @section('content')
-
 <div class="row">
 	<div class="col-md-12">
-
+	@if(session('role') == 1)
 		<h3 align="center">تعديل فاتورة الصيانة</h3>
 		<br/>
 		@if(count($errors) > 0)
@@ -18,8 +17,7 @@
 		@endif
 		<form method="post" action="{{ action('RepairDevicesController@update', $repairDevice['id']) }}">
 			{{csrf_field()}}
-			{{method_field('PATCH')}}
-
+			{{ method_field('PATCH') }}
 			<div class="form-group">
 				<label style="float: right; font-size: 20px;">اسم شركة الصيانة</label>
 				<input type="text" name="companyName" class="form-control" placeholder="اسم شركة الصيانة" value="{{ $repairDevice['company_name'] }}" required="" style="text-align:right;">
@@ -46,15 +44,18 @@
 			</div>
 			<div class="form-group">
 				<label style="float:right; font-size: 20px;">تعليق</label>
-				<textarea rows="4" name="comment" class="form-control" placeholder="تعليق" style="resize:none; text-align:right;">{{ $repairDevice['comment'] }}</textarea>
+				<textarea rows="4" name="comment" class="form-control" placeholder="تعليق" style="resize:none; text-align:right;" required="">{{ $repairDevice['comment'] }}</textarea>
 			</div>
 			<div class="form-group">
 				<input type="submit" name="submit" class="btn btn-primary col-md-4 col-md-offset-4" value="تعديل" style="font-size: 20px;">
 			</div>
 		</form>
-		<br/>
-		<br/>
-		<br/>
+		<br>
+		<br>
+		<br>
+	@else
+		@include('httpAuth')
+	@endif
 	</div>
 </div>
 
