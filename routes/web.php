@@ -29,8 +29,9 @@ Route::resource('RepairDevices', 'RepairDevicesController');
 
 Route::resource('Salary', 'SalaryController');
 
-Route::resource('Patients', 'PatientsController');
+Route::resource('Lab', 'LabController');
 
+<<<<<<< HEAD
 Route::post('Patients/fetch', 'PatientsController@fetch');
 
 Route::get('Visits/create/{patient_id}' , 'PatientsController@createVisit')->name('Visits.create');
@@ -42,3 +43,6 @@ Route::get('Visits/delete/{id}', 'PatientsController@deleteVisit')->name('Visits
 Route::get('Visits/edit/{id}', 'PatientsController@editVisit')->name('Visits.edit');
 
 Route::post('Visits/update/{id}', 'PatientsController@updateVisit')->name('Visits.update');
+=======
+Route::resource('Patients', 'PatientsController');
+>>>>>>> dbd36b243832012296a3afe6b21833281a8aa1a5

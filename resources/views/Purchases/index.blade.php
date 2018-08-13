@@ -13,7 +13,7 @@
 	<table class="table table-bordered table-striped">
 		<thead>
 			<tr>
-				<td align="Center">اسم المشتري</td>
+				<td align="Center">اسم المٌشترى</td>
 				<td align="Center">تعليق</td>
 				<td align="Center">التكلفه</td>
 				<td align="Center">تاريخ الشراء</td>

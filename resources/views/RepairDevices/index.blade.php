@@ -17,6 +17,7 @@
 			<br/>
 			<br/>
 		</div>
+		<a href=" {{ action('RepairDevicesController@show' , 1) }}" class="btn btn-primary">تحويل الي اكسيل</a>
 		<table class="table table-bordered table-striped">
 			<thead>
 				<th style="text-align: center;">تعديل/حذف</th>
