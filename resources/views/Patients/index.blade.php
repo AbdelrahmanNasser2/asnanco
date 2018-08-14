@@ -26,7 +26,8 @@
 		</div>
 		<div align="right">
 			<a href="{{route('Patients.create')}}" class="btn btn-primary">إضافة مريض</a>
-			<!-- 7777oooooootttttttttt link el excel hena -->
+			<a href=" {{route('Patients.excel',1)}}" class="btn btn-primary">تحويل جميع  بيانات المرضي الي اكسيل</a>
+			<a href=" {{route('Visits.excel',1)}}" class="btn btn-primary col-md-4" style="margin-top: 10px;">تحويل جميع  بيانات الزيارات الي اكسيل</a>
 			<br/>
 			<br/>
 		</div>

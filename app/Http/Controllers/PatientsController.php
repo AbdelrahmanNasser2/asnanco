@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Patient;
 use App\Visit;
-
+use Excel;
+use  App\Exports\PatientExport;
+use App\Exports\VisitExport;
 class PatientsController extends Controller
 {
     /**
@@ -141,6 +143,7 @@ class PatientsController extends Controller
         return redirect('Patients/'. $id)->with('success', 'تم التعديل');
     }
 
+
     /**
      * Remove the specified resource from storage.
      *
@@ -230,4 +233,16 @@ class PatientsController extends Controller
         return redirect('Patients/'. $patient_id)->with('success', 'تم التعديل');
 
     }
+
+    public function excel($id)
+    {
+        return Excel::download(new PatientExport,'patients.xlsx');
+    }
+
+     public function excel1($id)
+    {
+        return Excel::download(new VisitExport,'visits.xlsx');
+    }
+
+   
 }
