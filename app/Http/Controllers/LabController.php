@@ -6,19 +6,26 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Lab;
+use Datatables;
 
 class LabController extends Controller
 {
     public function index()
     {
-        $labss = Lab::all()->toArray();
+        // $labss = Lab::all()->toArray();
 
-        if($labss)
-            $labs = array($labss[sizeof($labss)-1]);
-        else
-            $labs = array();
+        // if($labss)
+        //     $labs = array($labss[sizeof($labss)-1]);
+        // else
+        //     $labs = array();
 
-        return view('Lab.index', compact('labs'));
+        return view('Lab.index');
+    }
+
+    function getdata()
+    {
+        $lab = Lab::all();
+        return Datatables::of($lab)->make(true);
     }
 
     public function create()
@@ -103,7 +110,7 @@ class LabController extends Controller
                     ->get();
         if($lab)
         {
-            return view('Lab.show', compact('lab'));
+           return view('Lab.show', compact('lab'));
         }
     }
 

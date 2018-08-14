@@ -31,6 +31,10 @@ Route::resource('Salary', 'SalaryController');
 
 Route::resource('Lab', 'LabController');
 
+Route::get('index', 'LabController@index')->name('index');
+
+Route::get('index/getdata', 'LabController@getdata')->name('lab.getdata');
+
 Route::post('Lab/search', 'LabController@search');
 
 Route::resource('Patients', 'PatientsController');
