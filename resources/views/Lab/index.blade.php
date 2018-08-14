@@ -12,20 +12,7 @@
 		</div>
 		@endif
 		<div align="right">
-<<<<<<< HEAD
-			<a href="{{route('Lab.create')}}" class="btn btn-primary">إضافة فاتورة معمل</a>
-			<a href=" {{route('Labs.excel',1)}}" class="btn btn-primary">تحةيل  الي اكسيل</a>
-			<br/>
-			<br/>
-		</div>
-		<form method="post" action="{{ action('LabController@search') }}">
-			{{csrf_field()}}
-			
-			<div class="form-group">
-				<label style="float: right; font-size: 20px;">اسم المعمل</label>
-				<input type="text" name="labName" class="form-control" placeholder="اسم المعمل" required="" style="text-align:right;">
-			</div>
-=======
+
 			<form method="post" action="{{ action('LabController@search') }}" class="col-md-10" style="display:inline;">
 				{{csrf_field()}}
 				
@@ -41,8 +28,6 @@
 					<input type="text" name="labName" class="form-control" placeholder="اسم المعمل" required="" style="text-align:right;">
 					<!-- <label style="float: right; font-size: 20px;">اسم المعمل</label> -->
 				</div>
->>>>>>> 8c93ae70d52cc57434a9561d27894b0426ab5b6d
-
 			</form>
 			<a href="{{route('Lab.create')}}" class="btn btn-primary" style="margin-top:35px;">إضافة فاتورة معمل</a>
 		</div>

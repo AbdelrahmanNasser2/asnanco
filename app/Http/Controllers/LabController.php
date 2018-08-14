@@ -6,12 +6,11 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Lab;
-<<<<<<< HEAD
+
 use App\Exports\LabExport;
 use Excel;
-=======
+
 use Datatables;
->>>>>>> 8c93ae70d52cc57434a9561d27894b0426ab5b6d
 
 class LabController extends Controller
 {
