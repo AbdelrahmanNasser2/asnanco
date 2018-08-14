@@ -29,7 +29,12 @@
 					<!-- <label style="float: right; font-size: 20px;">اسم المعمل</label> -->
 				</div>
 			</form>
-			<a href="{{route('Lab.create')}}" class="btn btn-primary" style="margin-top:35px;">إضافة فاتورة معمل</a>
+			
+				<a href="{{route('Lab.create')}}" class="btn btn-primary col-md-2" style="margin-top:35px;">إضافة فاتورة معمل</a>
+				<a href=" {{route('Labs.excel',1)}}" class="btn btn-primary col-md-2" style="margin-top: 10px;">تحويل  الي اكسيل</a>
+			
+			
+			
 		</div>
 		<table id="labs_table" class="table table-bordered table-striped" style="width:100%">
 		<thead>
