@@ -61,9 +61,9 @@
                 </div>
 
                 <div class="links">
-
-                    <a href="{{url('Patients')}}" style="font-size: 18px;">قسم المرضى</a>
-                    
+                    @if(session('role') == 1 || session('role') == 2)
+                        <a href="{{url('Patients')}}" style="font-size: 18px;">قسم المرضى</a>
+                    @endif
 
                     @if(session('role') == 1)
                         <a href="{{url('Purchases')}}" style="font-size: 18px;">المشتريات</a>
@@ -83,9 +83,9 @@
                         <a href="{{url('Salary')}}" style="font-size: 18px;">المرتبات</a>
                     @endif
 
-
-                    <a href="{{url('Lab')}}" style="font-size: 18px;">المعامل</a>
-                    
+                    @if(session('role') == 1 || session('role') == 2)
+                        <a href="{{url('Lab')}}" style="font-size: 18px;">المعامل</a>
+                    @endif
 
                     @if(session('role') == 1)
                         <a href="{{url('Admin')}}" style="font-size: 18px;">وحده التحكم</a>

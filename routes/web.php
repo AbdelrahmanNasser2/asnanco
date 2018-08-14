@@ -31,6 +31,10 @@ Route::resource('Salary', 'SalaryController');
 
 Route::resource('Lab', 'LabController');
 
+Route::get('index', 'LabController@index')->name('index');
+
+Route::get('index/getdata', 'LabController@getdata')->name('lab.getdata');
+
 Route::post('Lab/search', 'LabController@search');
 
 Route::resource('Patients', 'PatientsController');
@@ -52,5 +56,4 @@ Route::get('Visits/edit/{id}', 'PatientsController@editVisit')->name('Visits.edi
 
 Route::post('Visits/update/{id}', 'PatientsController@updateVisit')->name('Visits.update');
 
-
-
+Route::get('Lab/excel/{id}', 'LabController@excel')->name('Labs.excel');

@@ -6,19 +6,31 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Lab;
+<<<<<<< HEAD
+use App\Exports\LabExport;
+use Excel;
+=======
+use Datatables;
+>>>>>>> 8c93ae70d52cc57434a9561d27894b0426ab5b6d
 
 class LabController extends Controller
 {
     public function index()
     {
-        $labss = Lab::all()->toArray();
+        // $labss = Lab::all()->toArray();
 
-        if($labss)
-            $labs = array($labss[sizeof($labss)-1]);
-        else
-            $labs = array();
+        // if($labss)
+        //     $labs = array($labss[sizeof($labss)-1]);
+        // else
+        //     $labs = array();
 
-        return view('Lab.index', compact('labs'));
+        return view('Lab.index');
+    }
+
+    function getdata()
+    {
+        $lab = Lab::all();
+        return Datatables::of($lab)->make(true);
     }
 
     public function create()
@@ -103,7 +115,7 @@ class LabController extends Controller
                     ->get();
         if($lab)
         {
-            return view('Lab.show', compact('lab'));
+           return view('Lab.show', compact('lab'));
         }
     }
 
@@ -125,5 +137,10 @@ class LabController extends Controller
 		$lab->delete();
 
         return redirect()->route('Lab.index')->with('success','تم الحذف');
+    }
+
+    public function excel($id)
+    {
+        return Excel::download(new LabExport,'labs.xlsx');
     }
 }
