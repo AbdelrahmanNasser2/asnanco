@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="row">
-@if(session('role') == 1)
 	<div class="col-md-12">
+		@if(session('role') == 1)
 		<h3 align="center">مرتبات</h3>
 		<br/>
 		@if($message = Session::get('success'))
@@ -11,29 +11,26 @@
 			<p>{{$message}}</p>
 		</div>
 		@endif
-		<div class="col-md-12" style="padding: 0px;">
 		<form method="get" action="{{ action('SalaryController@show',1) }}">
 			{{csrf_field()}}
-			<div class="form-group col-md-4 col-md-offset-1" style="display:inline;">
+			<div class="form-group col-md-3" style="display:inline; margin-top: 44px">
+				<input type="submit" name="" value="تحويل الي اكسيل" class="btn btn-primary">
+			</div>
+			<div class="form-group col-md-3" style="display:inline;margin-top:7px;">
 				<label style="float:right; font-size: 20px;">الى</label>
 				<input type="date" name="to" class="form-control" placeholder="الى" >
 			</div>
-			<div class="form-group col-md-4" style="display:inline;">
+			<div class="form-group col-md-3" style="display:inline;margin-top:7px;">
 				<label style="float:right; font-size: 20px;">من</label>
 				<input type="date" name="from" class="form-control" placeholder="من" >
 			</div>
-			<div class="form-group" style="display:inline; margin-top: 44px">
-			<input type="submit" name="" value="تحويل الي اكسيل" class="btn btn-primary col-md-2" style="float: right; margin-top: 44px;">
-			</div>
 		</form>
-	</div>
-		<div align="right">
-			<a href="{{ route('Salary.create') }}" class="btn btn-primary col-md-2" style="float: right; margin-bottom: 10px;">إضافة بيان مرتب</a>
-		
-			<br/>
-			<br/>
+		<div style="float: right; margin-top: 45px;margin-right:15px;">
+			<a href="{{ route('Salary.create') }}" class="btn btn-primary">إضافة بيان مرتب</a>
+			<br>
+			<br>
 		</div>
-		<table class="table table-bordered table-striped">
+		<table id="data-table-salaries" class="table table-bordered table-striped">
 			<thead>
 				<th style="text-align: center;">تعديل/حذف</th>
 				<th style="text-align: center;">صافى المرتب</th>
@@ -52,9 +49,9 @@
 						<form method="post" class="delete_form" action="{{action('SalaryController@destroy', $sal['id'])}}" style="display: inline;">
 							{{ csrf_field() }}
 							{{ method_field('DELETE') }}
-							<input type="submit" value="حذف" class="btn btn-danger">
+							<input type="submit" value="حذف" class="btn btn-danger btn-sm">
 						</form>
-						<a href="{{action('SalaryController@edit', $sal['id'])}}" class="btn btn-success">تعديل</a>
+						<a href="{{action('SalaryController@edit', $sal['id'])}}" class="btn btn-success btn-sm">تعديل</a>
 					</td>
 					<td style="text-align: center;">{{$sal['net_salary']}}</td>
 					<td style="text-align: center;">{{$sal['discount']}}</td>
@@ -68,10 +65,10 @@
 				@endforeach
 			</tbody>
 		</table>
+		@else
+			@include('httpAuth')
+		@endif
 	</div>
-@else
-	@include('httpAuth')
-@endif
 </div>
 <script type="text/javascript">
 	$(document).ready(function(){
@@ -83,6 +80,7 @@
 				return false;
 			}
 		});
+		$("#data-table-salaries").DataTable();
 	});
 </script>
 @endsection
