@@ -7,7 +7,7 @@
 <div class="row">
 	<div class="col-md-12">
 		@if($message = Session::get('success'))
-		<div class="alert alert-success">
+		<div class="alert alert-success" style="text-align:right;">
 			<p>{{ $message }}</p>
 		</div>
 		@endif
@@ -39,11 +39,11 @@
 				<td style="text-align: center;">الوظيفه</td>
 			</tr>
 			<tr>
-				<td style="text-align: center;">{{ $patient['general_diagnosis'] }}</td>
+				<td style="text-align: center; white-space: pre;">{{ $patient['general_diagnosis'] }}</td>
 				<td style="text-align: center;">التشخيص العام</td>
 			</tr>
 			<tr>
-				<td style="text-align: center;">{{ $patient['other_diseases'] }}</td>
+				<td style="text-align: center; white-space: pre;">{{ $patient['other_diseases'] }}</td>
 				<td style="text-align: center;">امراض اخرى</td>
 			</tr>
 			<tr>
@@ -91,7 +91,7 @@
 						<a href="{{ route('Visits.edit' , $visit['id'] ) }}" class="btn btn-success">تعديل</a>
 					</td>
 					@endif
-					<td style="text-align: center;">{{ $visit['comment'] }}</td>
+					<td style="text-align: center; white-space: pre;">{{ $visit['comment'] }}</td>
 					<td style="text-align: center;">{{ $visit['remain'] }}</td>
 					<td style="text-align: center;">{{ $visit['paid'] }}</td>
 					<td style="text-align: center;">{{ $visit['visit_date'] }}</td>

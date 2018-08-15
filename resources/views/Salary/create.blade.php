@@ -63,7 +63,7 @@
 			<br>
 			<br>
 			<div class="form-group">
-				<input type="submit" name="submit" class="btn btn-primary col-md-4 col-md-offset-4" value="تسجيل" style="font-size: 20px;">
+				<input type="submit" name="submit" id="submit" class="btn btn-primary col-md-4 col-md-offset-4" value="تسجيل" disabled style="font-size: 20px;">
 			</div>
 		</form>
 		<br/>
@@ -96,6 +96,8 @@ $(document).ready(function(){
 
 		document.getElementById("discount").value = Math.round(discount);
 		document.getElementById("net_salary").value = Math.round(netSalary);
+
+		document.getElementById("submit").disabled = false;
 	});
 });
 
