@@ -42,8 +42,6 @@
 
 			<div class="form-group">
 				<label style="float:right; font-size: 20px;">الصورة</label>
-				<br>
-				<label style="float:right; font-size: 20px;">يجب اعاده رفع الصورة</label>
 				<input type="file" name="select_file" />
 				<span class="text-muted">jpeg, jpg, png, gif</span>
 			</div>

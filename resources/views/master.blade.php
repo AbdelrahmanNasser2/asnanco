@@ -8,7 +8,7 @@
 	<title>Asnanco</title>
 	
     <script src="{{asset('/js/jquery.min.js')}}"></script>
-    <script src="{{asset('/js/bootstrap.min.js')}}" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="{{asset('/js/bootstrap.min.js')}}" crossorigin="anonymous"></script>
     
     <script src="{{asset('/js/lib/data-table/datatables.min.js')}}"></script>
     <script src="{{asset('/js/lib/data-table/dataTables.bootstrap.min.js')}}"></script>
@@ -28,7 +28,12 @@
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="stylesheet" href="{{asset('/css/lib/datatable/dataTables.bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('/css/font-RaleWay900.css')}}">
-
+    
+    <style type="text/css">
+        input[type="date"]{
+            line-height: 1.5 !important;
+        }
+    </style>
 
 </head>
 <body>

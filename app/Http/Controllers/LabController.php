@@ -10,26 +10,26 @@ use App\Lab;
 use App\Exports\LabExport;
 use Excel;
 
-use Datatables;
+use DataTables;
 
 class LabController extends Controller
 {
     public function index()
     {
-        // $labss = Lab::all()->toArray();
+        $labss = Lab::all()->toArray();
 
         // if($labss)
         //     $labs = array($labss[sizeof($labss)-1]);
         // else
         //     $labs = array();
 
-        return view('Lab.index');
+        return view('Lab.index', compact('labss'));
     }
 
     function getdata()
     {
         $lab = Lab::all();
-        return Datatables::of($lab)->make(true);
+        return DataTables::of($lab)->make(true);
     }
 
     public function create()
@@ -63,7 +63,7 @@ class LabController extends Controller
 
         $lab->save();
 
-        return redirect()->route('Lab.index')->with('success', 'تم إضافة الفاتورة');
+        return redirect()->route('Lab.index')->with('success', 'تم إضافة المعمل');
     }
 
     public function edit($id)
@@ -80,7 +80,7 @@ class LabController extends Controller
             'deliveryDate' => 'required | date',
             'receiptDate' => 'required | date',
             'cost' => 'required | numeric',
-            'select_file' => 'required|image|mimes:jpeg,jpg,png,gif'
+            'select_file' => 'image|mimes:jpeg,jpg,png,gif'
         ]);
 
         $lab = Lab::find($id);
@@ -89,15 +89,18 @@ class LabController extends Controller
         $lab->delivery_date = $request->get('deliveryDate');
         $lab->receipt_date = $request->get('receiptDate');
         $lab->cost = $request->get('cost');
-        
-        $image = $request->file('select_file');
 
-		$imgname = $image->getClientOriginalName();
+        if($request->file('select_file') != ''){
+            
+            $image = $request->file('select_file');
 
-        $image->move(public_path('images'), $imgname);
+    		$imgname = $image->getClientOriginalName();
 
-        
-        $lab->img_name = $imgname;
+            $image->move(public_path('images'), $imgname);
+
+            
+            $lab->img_name = $imgname;
+        }
 
         $lab->save();
 
