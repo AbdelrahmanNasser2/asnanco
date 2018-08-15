@@ -53,22 +53,7 @@
 				<a href="{{route('Lab.create')}}" class="btn btn-primary col-md-2" style="margin:37px 0 0 0;">إضافة فاتورة معمل</a>
 				
 			
-			
-			
 		</div>
-
-<<<<<<< HEAD
-
-		<table id="labs_table" class="table table-bordered table-striped" style="width:100%">
-		<thead>
-			<th style="text-align:center;">تعديل / حذف</th>
-			<th style="text-align:center;">الصورة</th>
-			<th style="text-align:center;">التكلفة</th>
-			<th style="text-align:center;">تاريخ الأستلام</th>
-			<th style="text-align:center;">تاريخ التسليم</th>
-			<th style="text-align:center;">اسم المعمل</th>
-		</thead>
-=======
 	</div>
 </div>
 @if(session('role') == 1)
@@ -116,7 +101,7 @@
 				</tr>
 				@endforeach
 			</tbody>
->>>>>>> d81d4389e8cc0a068c04d8245e4aa5644ec880e0
+
 		</table>
 	</div>
 </div>

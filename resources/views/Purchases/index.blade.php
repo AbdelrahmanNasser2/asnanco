@@ -33,21 +33,13 @@
 		</div>	
 		<table class="table table-bordered table-striped">
 			<thead>
-<<<<<<< HEAD
-				<th style="text-align: center;">تعديل / حذف</th>
-				<th style="text-align: center;">اسم المٌشترى</th>
-				<th style="text-align: center;">تعليق</th>
-				<th style="text-align: center;">التكلفه</th>
-				<th style="text-align: center;">تاريخ الشراء</th>
-				<th style="text-align: center;">اسم المورد</th>
-=======
+
 				<th style="text-align:center;">تعديل / حذف</th>
 				<th style="text-align:center;">اسم المٌشترى</th>
 				<th style="text-align:center;">تعليق</th>
 				<th style="text-align:center;">التكلفه</th>
 				<th style="text-align:center;">تاريخ الشراء</th>
 				<th style="text-align:center;">اسم المورد</th>
->>>>>>> d81d4389e8cc0a068c04d8245e4aa5644ec880e0
 			</thead>
 			<tbody>
 				@foreach($purchases as $purchase)
