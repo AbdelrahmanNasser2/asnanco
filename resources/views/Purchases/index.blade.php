@@ -19,12 +19,12 @@
 		</div>	
 		<table class="table table-bordered table-striped">
 			<thead>
-				<th align="Center">تعديل / حذف</th>
-				<th align="Center">اسم المٌشترى</th>
-				<th align="Center">تعليق</th>
-				<th align="Center">التكلفه</th>
-				<th align="Center">تاريخ الشراء</th>
-				<th align="Center">اسم المورد</th>
+				<th style="text-align:center;">تعديل / حذف</th>
+				<th style="text-align:center;">اسم المٌشترى</th>
+				<th style="text-align:center;">تعليق</th>
+				<th style="text-align:center;">التكلفه</th>
+				<th style="text-align:center;">تاريخ الشراء</th>
+				<th style="text-align:center;">اسم المورد</th>
 			</thead>
 			<tbody>
 				@foreach($purchases as $purchase)

@@ -6,13 +6,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Asnanco</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">
+        <script src="{{asset('/js/jquery.min.js')}}"></script>
+
+        <link href="{{asset('/css/bootstrap.css')}}" rel="stylesheet">
+    
         <link rel="apple-touch-icon" href="apple-icon.png">
         <link rel="shortcut icon" href="favicon.ico">
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
+        <link rel="stylesheet" href="{{asset('/css/font-RaleWay100-600.css')}}">
         <!-- Styles -->
         <style>
             html, body {

@@ -36,15 +36,15 @@
 			
 			
 		</div>
-		<table id="labs_table" class="table table-bordered table-striped" style="width:100%">
-		<thead>
-			<th style="text-align:center;">تعديل / حذف</th>
-			<th style="text-align:center;">الصورة</th>
-			<th style="text-align:center;">التكلفة</th>
-			<th style="text-align:center;">تاريخ الأستلام</th>
-			<th style="text-align:center;">تاريخ التسليم</th>
-			<th style="text-align:center;">اسم المعمل</th>
-		</thead>
+		<table id="bootstrap-data-table" class="table table-striped table-bordered" style="width:100%">
+	      	<thead>
+				<th style="text-align:center;">تعديل / حذف</th>
+				<th style="text-align:center;">الصورة</th>
+				<th style="text-align:center;">التكلفة</th>
+				<th style="text-align:center;">تاريخ الأستلام</th>
+				<th style="text-align:center;">تاريخ التسليم</th>
+				<th style="text-align:center;">اسم المعمل</th>
+			</thead>
 		</table>
 	</div>
 </div>
@@ -57,18 +57,22 @@
 				return false;
 			}
 		});
-		$('#student_table').DataTable({
-        "processing": true,
-        "serverSide": true,
-        "ajax": "{{ route('lab.getdata') }}",
-        "columns":[
-            { "data": "" },
-            { "data": "img_name" },
-			{ "data": "cost" },
-            { "data": "reciept_date" },
-            { "data": "delivery_date" },
-            { "data": "lab_name" }
-        ]
+        $('#bootstrap-data-table').DataTable({
+		    "processing": true,
+	        "serverSide": true,
+	        "ajax": "{{ route('lab.getdata') }}",
+	        "columns":[
+	            { "data": "" },
+	            { "data": "img_name" },
+				{ "data": "cost" },
+	            { "data": "reciept_date" },
+	            { "data": "delivery_date" },
+	            { "data": "lab_name" }
+	        ]
+        });
+        
+
+    	$('#student_table').DataTable({
      });
 });
 </script>
