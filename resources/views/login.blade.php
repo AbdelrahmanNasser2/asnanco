@@ -22,8 +22,9 @@
     <!-- <link rel="stylesheet" href="assets/css/bootstrap-select.less"> -->
     <link rel="stylesheet" href="{{asset('scss/style.css')}}">
 
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:900">
+    <link href='{{asset("/css/font-OpenSans.css")}}' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{asset('/css/font-RaleWay900.css')}}">
+
 
     <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
 

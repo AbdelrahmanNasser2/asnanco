@@ -65,7 +65,7 @@
 		
 	</div>
 </div>
-	@if($visits)
+	@if(sizeof($visits) > 0)
 	<div class="row">
 		<table class="table table-bordered table-striped">
 			<thead>

@@ -32,7 +32,7 @@
 			<tr>
 				@if(session('role') == 1)
 				<td align="Center">
-					<form method="post" action="{{ action('LabController@destroy',$lb['id']) }}" style="display: inline;">
+					<form method="post" id="del" action="{{ action('LabController@destroy',$lb['id']) }}" style="display: inline;">
 						{{csrf_field()}}
 						{{ method_field('DELETE') }}
 						<input type="submit" name="" value="حذف"   class="btn btn-danger">
@@ -43,14 +43,14 @@
 				<td align="Center">
 					<img src="/images/{{ $lb['img_name'] }}" width="100" height="100" class="lab_img" data-toggle="modal" data-target="#lab_img_modal_{{ $lb['id'] }}">
 					<div class="modal fade" id="lab_img_modal_{{ $lb['id'] }}" role="dialog">
-                    <div class="modal-dialog modal-md">
-                        <div class="modal-content">
-                            <div class="modal-body" style="text-align: center;">
-                                <img src="/images/{{ $lb['img_name'] }}" class="img-responsive img-thumbnail" alt="Lab Image">
-                            </div>
-                        </div>
-                    </div>
-                </div>
+	                    <div class="modal-dialog modal-md">
+	                        <div class="modal-content">
+	                            <div class="modal-body" style="text-align: center;">
+	                                <img src="/images/{{ $lb['img_name'] }}" class="img-responsive img-thumbnail" alt="Lab Image">
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
 				</td>
 				<td align="Center">{{ $lb["cost"] }}</td>
 				<td align="Center">{{ $lb["receipt_date"] }}</td>
@@ -71,7 +71,7 @@
 
 	$(document).ready(function () {
 		$('#del').on('submit' , function() {
-			var con = confirm("Ary you sure you want delete this purchase?");
+			var con = confirm("هل تريد حذف هذا المعمل ؟");
 			if(con){
 				return true;
 			}else{

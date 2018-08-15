@@ -76,9 +76,13 @@ class PurchaseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        return Excel::download(new PurchaseExport, 'purchase.xlsx');
+    public function show(Request $req,$id)
+    {     
+        $from = $req->get('from');
+        $to   = $req->get('to');
+        // return (new PurchaseExport($from,$to))->download('purchase.xlsx');
+        
+        return Excel::download(new PurchaseExport($from,$to), 'purchase.xlsx');;
     }
 
     /**

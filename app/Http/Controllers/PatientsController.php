@@ -234,14 +234,20 @@ class PatientsController extends Controller
 
     }
 
-    public function excel($id)
+    public function excel(Request $req,$id)
     {
-        return Excel::download(new PatientExport,'patients.xlsx');
+        $from = $req->get('from');
+        $to   = $req->get('to');
+
+        return Excel::download(new PatientExport($from,$to),'patients.xlsx');
     }
 
-     public function excel1($id)
+     public function excel1(Request $req,$id)
     {
-        return Excel::download(new VisitExport,'visits.xlsx');
+        $from = $req->get('from');
+        $to   = $req->get('to');
+        
+        return Excel::download(new VisitExport($from,$to),'visits.xlsx');
     }
 
    

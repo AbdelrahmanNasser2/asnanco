@@ -6,19 +6,34 @@
 	<meta name="viewport" content="width=device-width,
 	initial-scale=1">
 	<title>Asnanco</title>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	
+    <script src="{{asset('/js/jquery.min.js')}}"></script>
+    <script src="{{asset('/js/bootstrap.min.js')}}" crossorigin="anonymous"></script>
     
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    
-    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">
-	<link rel="apple-touch-icon" href="apple-icon.png">
-    <link rel="shortcut icon" href="favicon.ico">
+    <script src="{{asset('/js/lib/data-table/datatables.min.js')}}"></script>
+    <script src="{{asset('/js/lib/data-table/dataTables.bootstrap.min.js')}}"></script>
+    <script src="{{asset('/js/lib/data-table/dataTables.buttons.min.js')}}"></script>
+    <script src="{{asset('/js/lib/data-table/buttons.bootstrap.min.js')}}"></script>
+    <script src="{{asset('/js/lib/data-table/jszip.min.js')}}"></script>
+    <script src="{{asset('/js/lib/data-table/pdfmake.min.js')}}"></script>
+    <script src="{{asset('/js/lib/data-table/vfs_fonts.js')}}"></script>
+    <script src="{{asset('/js/lib/data-table/buttons.html5.min.js')}}"></script>
+    <script src="{{asset('/js/lib/data-table/buttons.print.min.js')}}"></script>
+    <script src="{{asset('/js/lib/data-table/buttons.colVis.min.js')}}"></script>
+    <script src="{{asset('/js/lib/data-table/datatables-init.js')}}"></script>
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:900">
+
+    <link href="{{asset('/css/bootstrap.css')}}" rel="stylesheet">
+    <link rel="apple-touch-icon" href="apple-icon.png">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="{{asset('/css/lib/datatable/dataTables.bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('/css/font-RaleWay900.css')}}">
+    
+    <style type="text/css">
+        input[type="date"]{
+            line-height: 1.5 !important;
+        }
+    </style>
 
 </head>
 <body>

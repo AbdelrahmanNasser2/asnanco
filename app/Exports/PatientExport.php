@@ -7,6 +7,15 @@ use Maatwebsite\Excel\Concerns\FromCollection;
 
 class PatientExport implements FromCollection
 {
+
+
+    public function __construct($from , $to)
+    {
+        $this->from =$from ;
+        $this->to =$to;
+    }
+
+
     /**
     * @return \Illuminate\Support\Collection
     */
@@ -14,7 +23,13 @@ class PatientExport implements FromCollection
     {
         $c = collect([['امراض اخرى','التشخيص العام','الوظيفه','العنوان','الموبايل  ','الاسم']]);
     	
-    	$paitents_array = Patient::all();
+    	if($this->from == '' or $this->to == ''){
+            $paitents_array = Patient::all();
+        }else{
+            $paitents_array = Patient::whereBetween('created_at', [$this->from." 00:00:00", $this->to." 00:00:00"])->orWhereDate('created_at',$this->to." 00:00:00")->get();
+        
+
+        }
     	
     	foreach ( $paitents_array as $value) {
     	

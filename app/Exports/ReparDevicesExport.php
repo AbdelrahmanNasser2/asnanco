@@ -7,7 +7,13 @@ use App\Repair_Device;
 use Maatwebsite\Excel\Concerns\FromCollection;
 
 class ReparDevicesExport implements FromCollection
-{
+{  
+
+    public function __construct($from , $to)
+    {
+        $this->from =$from ;
+        $this->to =$to;
+    }
 
     /**
     * @return \Illuminate\Support\Collection
@@ -22,7 +28,11 @@ class ReparDevicesExport implements FromCollection
     	
     	$c = collect([$reverse]);
     	
-    	$repairs_array = Repair_Device::all();
+    	if($this->from == '' or $this->to == ''){
+            $repairs_array = Repair_Device::all();
+        }else{
+            $repairs_array = Repair_Device::whereBetween('created_at', [$this->from." 00:00:00", $this->to." 00:00:00"])->orWhereDate('created_at',$this->to." 00:00:00")->get();
+        }
 
     	foreach ($repairs_array as $value) {
     	

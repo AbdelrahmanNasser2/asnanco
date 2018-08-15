@@ -8,6 +8,13 @@ use App\Patient;
 
 class VisitExport implements FromCollection
 {
+
+    public function __construct($from , $to)
+    {
+        $this->from =$from ;
+        $this->to =$to;
+    }
+    
     /**
     * @return \Illuminate\Support\Collection
     */
@@ -16,7 +23,13 @@ class VisitExport implements FromCollection
     	$rev = array_reverse(['اسم المريض','اسم الدكتور','تاريخ الزيارة','المدفوع','المتبقي  ','تعليق']);
         $c = collect([$rev]);
     	
-    	$vists_array = Visit::all();
+    	if($this->from == '' or $this->to == ''){
+            $vists_array = Visit::all();
+        }else{
+            $vists_array = Visit::whereBetween('created_at', [$this->from." 00:00:00", $this->to." 00:00:00"])->orWhereDate('created_at',$this->to." 00:00:00")->get();
+        
+
+        }
     	
     	foreach ( $vists_array as $value) {
 

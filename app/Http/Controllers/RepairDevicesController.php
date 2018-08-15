@@ -79,9 +79,11 @@ class RepairDevicesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $req,$id)
     {
-        return Excel::download(new ReparDevicesExport, 'repairDevice.xlsx');
+        $from = $req->get('from');
+        $to   = $req->get('to');
+        return Excel::download(new ReparDevicesExport($from,$to), 'repairDevice.xlsx');
     }
 
     /**

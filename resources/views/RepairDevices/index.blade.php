@@ -11,11 +11,27 @@
 			<p>{{$message}}</p>
 		</div>
 		@endif
+			<div class="col-md-12" style="padding: 0px;">
+		<form method="get" action="{{ action('RepairDevicesController@show' , 1) }}">
+			{{csrf_field()}}
+			<div class="form-group col-md-4 col-md-offset-1" style="display:inline;">
+				<label style="float:right; font-size: 20px;">الى</label>
+				<input type="date" name="to" class="form-control" placeholder="الى" >
+			</div>
+			<div class="form-group col-md-4" style="display:inline;">
+				<label style="float:right; font-size: 20px;">من</label>
+				<input type="date" name="from" class="form-control" placeholder="من" >
+			</div>
+			<div class="form-group" style="display:inline; margin-top: 44px">
+			<input type="submit" name="" value="تحويل الي اكسيل" class="btn btn-primary col-md-2" style="float: right; margin-top: 44px;">
+			</div>
+		</form>
+	</div>
 		<div align="right">
-			<a href="{{ route('RepairDevices.create')}}" class="btn btn-primary">إضافة فاتورة صيانة اجهزه</a>
-			<a href=" {{ action('RepairDevicesController@show' , 1) }}" class="btn btn-primary">تحويل الي اكسيل</a>
+			<a href="{{ route('RepairDevices.create')}}" class="btn btn-primary col-md-2" style="float: right; margin-bottom: 15px;">إضافة فاتورة صيانة اجهزه</a>
 			<br/>
 			<br/>
+			
 		</div>
 		<table class="table table-bordered table-striped">
 			<thead>

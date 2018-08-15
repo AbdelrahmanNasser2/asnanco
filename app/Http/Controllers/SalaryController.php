@@ -20,8 +20,10 @@ class SalaryController extends Controller
         return view('Salary.index', compact('Salary'));
     }
 
-    public function show($id){
-        return Excel::download(new SalaryExport, 'salaries.xlsx');
+    public function show(Request $req,$id){
+        $from = $req->get('from');
+        $to   = $req->get('to');
+        return Excel::download(new SalaryExport($from,$to), 'salaries.xlsx');
     }
     
     public function create()
