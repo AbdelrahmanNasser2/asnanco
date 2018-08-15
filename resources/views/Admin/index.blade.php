@@ -1,9 +1,9 @@
 @extends('master')
 
 @section('content')
-@if(session('role') == 1)
 <div class="row">
 	<div class="col-md-12">
+	@if(session('role') == 1)
 		<h3 align="center">حسابات المستخدمين</h3>
 		<br>
 		@if($message = Session::get('success'))
@@ -17,7 +17,7 @@
 			<br>
 
 		</div>
-		<table class="table table-bordered table-striped">
+		<table id="data-table-users" class="table table-bordered table-striped">
 			<thead>
 				<th style="text-align:center;">تعديل / حذف</th>
 				<th style="text-align:center;">النوع</th>
@@ -40,11 +40,11 @@
 			</tr>
 			@endforeach
 		</table>
+	@else
+		@include('httpAuth')
+	@endif
 	</div>
 </div>
-@else
-	@include('httpAuth')
-@endif
 <script>
 $(document).ready(function(){
 	$('.delete_form').on('submit', function(){
@@ -58,6 +58,8 @@ $(document).ready(function(){
 			return false;
 		}
 	});
+
+	$('#data-table-users').DataTable();
 });
 </script>
 @endsection

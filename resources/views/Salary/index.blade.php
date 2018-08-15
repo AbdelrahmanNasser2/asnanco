@@ -73,7 +73,7 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		$(".delete_form").on('submit', function(){
-			var con = confirm("هل تريد حذف هذه البيان ؟");
+			var con = confirm("هل تريد حذف هذا البيان ؟");
 			if(con){
 				return true;
 			}else{

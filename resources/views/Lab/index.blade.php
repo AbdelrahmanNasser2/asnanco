@@ -11,46 +11,54 @@
 		<h3 align="center">المعامل</h3>
 		<br/>
 		@if($message = Session::get('success'))
-		<div class="alert alert-success">
+		<div class="alert alert-success" style="text-align: right;">
 			<p>{{$message}}</p>
 		</div>
 		@endif
-		<div class="col-md-12" style="padding: 0px;">
-		<form method="get" action="{{route('Labs.excel',1)}}">
-			{{csrf_field()}}
-			<div class="form-group col-md-4 col-md-offset-1" style="display:inline;">
-				<label style="float:right; font-size: 20px;">الى</label>
-				<input type="date" name="to" class="form-control" placeholder="الى" >
-			</div>
-			<div class="form-group col-md-4" style="display:inline;">
-				<label style="float:right; font-size: 20px;">من</label>
-				<input type="date" name="from" class="form-control" placeholder="من" >
-			</div>
-			<div class="form-group" style="display:inline; margin-top: 44px">
-			<input type="submit" name="" value="تحويل الي اكسيل" class="btn btn-primary col-md-2" style="float: right; margin-top: 44px;">
-			</div>
-		</form>
+		
+		@if(session('role') == 1)
+		<div align="right">
+			<form method="get" action="{{route('Labs.excel',1)}}">
+				{{csrf_field()}}
+				<div class="col-md-3"></div>
+				<div class="form-group col-md-3" style="display:inline;">
+					<label style="float:right; font-size: 20px;">الى</label>
+					<input type="date" name="to" class="form-control" placeholder="الى" >
+				</div>
+				<div class="form-group col-md-3" style="display:inline;">
+					<label style="float:right; font-size: 20px;">من</label>
+					<input type="date" name="from" class="form-control" placeholder="من" >
+				</div>
+				<div class="form-group col-md-3" style="display:inline;">
+					<input type="submit" name="" value="تحويل الي اكسيل" class="btn btn-primary" style="float: right; margin-top: 40px;">
+				</div>
+			</form>
+		</div>
+		@endif
+		
 	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
 		<div align="right">
 
-			<form method="post" action="{{ action('LabController@search') }}" class="col-md-10" style="display:inline;">
+			<form method="post" action="{{ action('LabController@search') }}" style="display:inline;">
 				{{csrf_field()}}
 				
 				<div class="form-group col-md-3" style="display:inline;">
-					<input type="submit" name="submit" class="btn btn-primary col-md-4 col-md-offset-4" value="بحث" style="font-size: 20px; margin-top:35px;">
+					<input type="submit" name="submit" class="btn btn-primary btn-sm col-md-4 col-md-offset-2" value="بحث" style="font-size: 20px; margin-top:35px;">
 				</div>
-				<div class="form-group col-md-4" style="display:inline;">
+				<div class="form-group col-md-3" style="display:inline;">
 					<label style="float:right; font-size: 20px;">تاريخ الأستلام</label>
 					<input type="date" name="recieptDate" class="form-control" placeholder="تاريخ الأستلام" required="">
 				</div>
-				<div class="form-group col-md-4" style="display:inline;">
+				<div class="form-group col-md-3" style="display:inline;">
 					<label style="float:right; font-size: 20px;">اسم المعمل</label>
 					<input type="text" name="labName" class="form-control" placeholder="اسم المعمل" required="" style="text-align:right;">
-					<!-- <label style="float: right; font-size: 20px;">اسم المعمل</label> -->
 				</div>
 			</form>
 			
-				<a href="{{route('Lab.create')}}" class="btn btn-primary col-md-2" style="margin:37px 0 0 0;">إضافة فاتورة معمل</a>
+			<a href="{{route('Lab.create')}}" class="btn btn-primary" style="margin:37px 15px 0 0;">إضافة فاتورة معمل</a>
 				
 			
 		</div>
@@ -58,11 +66,9 @@
 </div>
 @if(session('role') == 1)
 <br/>
-<br/>
-<br/>
 <div class="row">
 	<div class="col-md-12">
-		<table id="labs_table" class="table table-striped table-bordered" style="width:100%">
+		<table id="labs_table" class="table table-striped table-bordered">
 	      	<thead>
 				<th style="text-align:center;">تعديل / حذف</th>
 				<th style="text-align:center;">الصورة</th>

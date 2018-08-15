@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="row">
-	<div class="col-mid-12">
+	<div class="col-md-12">
 	@if(session('role') == 1)
 		<h3 style="text-align:center;">تعديل الحساب</h3>
 		<br>
@@ -29,9 +29,9 @@
 			<div class="form-group" align="right">
 				<label for="male" >: النوع</label>
 					<br>
-				Admin <input type="radio" name="Role_type" value="1" checked>
+				Admin <input type="radio" name="Role_type" value="1" <?php if($user->Role_type == 1) echo "checked"; ?> >
 					<br>
-  				Regular User <input type="radio" name="Role_type" value="2">
+  				Regular User <input type="radio" name="Role_type" value="2"  <?php if($user->Role_type == 2) echo "checked"; ?> >
   					<br>
 			</div>
 			<div class="form-group" align="right">
