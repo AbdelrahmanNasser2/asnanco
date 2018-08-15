@@ -26,7 +26,7 @@ class VisitExport implements FromCollection
     	if($this->from == '' or $this->to == ''){
             $vists_array = Visit::all();
         }else{
-            $vists_array = Visit::whereBetween('created_at', [$this->from." 00:00:00", $this->to." 00:00:00"])->orWhereDate('created_at',$this->to." 00:00:00")->get();
+            $vists_array = Visit::whereBetween('visit_date', [$this->from, $this->to])->orWhereDate('visit_date',$this->to." 00:00:00")->get();
         
 
         }

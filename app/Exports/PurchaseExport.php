@@ -26,7 +26,7 @@ class PurchaseExport implements FromCollection
         if($this->from == '' or $this->to == ''){
             $purchases_array = Purchase::all();
     	}else{
-            $purchases_array = Purchase::whereBetween('created_at', [$this->from." 00:00:00", $this->to." 00:00:00"])->orWhereDate('created_at',$this->to." 00:00:00")->get();
+            $purchases_array = Purchase::whereBetween('purchase_date', [$this->from, $this->to])->orWhereDate('purchase_date',$this->to)->get();
             // $purchases_array1 = Purchase::whereDate('created_at',$this->to." 00:00:00")->get();
 
         }
