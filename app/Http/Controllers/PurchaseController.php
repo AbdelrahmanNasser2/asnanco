@@ -60,6 +60,7 @@ class PurchaseController extends Controller
         $purchase->cost          = $request->get('cost');
         $purchase->comment       = $request->get('comment');
         $purchase->officer       = $request->get('officer');
+        $purchase->created_by    = session('username');
         $purchase->save();
 
         if($request->session()->has('role')){

@@ -62,6 +62,7 @@ class RepairDevicesController extends Controller
             'cost'             => $request->get('cost'),
             'comment'          => $request->get('comment')
         ]);
+        $repairDevice->created_by = session('username');
 
         $repairDevice->save();
 

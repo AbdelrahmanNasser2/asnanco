@@ -54,7 +54,7 @@ class SalaryController extends Controller
             'discount'      => $request->get('discount'),
             'net_salary'    => $request->get('net_salary')
         ]);
-
+    
         $salary->save();
 
         return redirect()->route('Salary.index')->with('success', 'تم إضافة البيان');

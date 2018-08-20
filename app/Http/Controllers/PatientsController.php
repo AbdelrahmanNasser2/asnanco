@@ -56,7 +56,7 @@ class PatientsController extends Controller
         $patient->general_diagnosis = $request->get('general_diagnosis');
         $patient->job = $request->get('job');
         $patient->other_diseases = $request->get('other_diseases');
-
+        $patient->created_by = session('username');
         $patient->save();
 
         $patient_id = $patient->id;
@@ -186,7 +186,7 @@ class PatientsController extends Controller
         $visit->remain = $request->get('remain');
         $visit->comment = $request->get('comment');
         $visit->patient_id = $request->get('patient_id');
-
+        $visit->created_by = session('username');
         $visit->save();
 
         return redirect('Patients/'. $request->get('patient_id'))->with('success', 'تم إضافة الزياره');

@@ -17,7 +17,7 @@
 		@endif
 		<form method="post" action="{{ url('Patients') }}">
 			{{csrf_field()}}
-
+			<!-- <input type="hidden" name="username" value="{{ session('username') }}"> -->
 			<div class="form-group">
 				<label style="float: right; font-size: 20px;">الاسم</label>
 				<input type="text" name="name" class="form-control" placeholder="اسم المريض" required="" style="text-align:right;">

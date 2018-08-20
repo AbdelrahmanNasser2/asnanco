@@ -21,7 +21,7 @@ class PatientExport implements FromCollection
     */
     public function collection()
     {
-        $c = collect([['امراض اخرى','التشخيص العام','الوظيفه','العنوان','الموبايل  ','الاسم']]);
+        $c = collect([['سُجل بواسطة','امراض اخرى','التشخيص العام','الوظيفه','العنوان','الموبايل  ','الاسم']]);
     	
     	if($this->from == '' or $this->to == ''){
             $paitents_array = Patient::all();
@@ -34,7 +34,10 @@ class PatientExport implements FromCollection
     	foreach ( $paitents_array as $value) {
     	
     		$patient = new Patient();      
-     	
+     	      
+
+            $patient->created_by = $value['created_by'];
+
 			$patient->other_diseases = $value['other_diseases'];
 
 			$patient->general_diagnosis = $value['general_diagnosis'];
@@ -45,9 +48,8 @@ class PatientExport implements FromCollection
     		
 			$patient->phone = $value['phone'];
 	    
-
     		$patient->name = $value['name'];
-
+        
     		$c = $c->concat([$patient]);
     	
     	}

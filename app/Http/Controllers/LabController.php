@@ -58,9 +58,9 @@ class LabController extends Controller
             'delivery_date' => $request->get('deliveryDate'),
             'receipt_date' => $request->get('receiptDate'),
             'cost' => $request->get('cost'),
-            'img_name' => $imgname
+            'img_name' => $imgname,
         ]);
-
+        $lab->created_by = session('username');
         $lab->save();
 
         return redirect()->route('Lab.index')->with('success', 'تم إضافة المعمل');

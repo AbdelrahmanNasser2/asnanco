@@ -20,38 +20,41 @@ class PurchaseExport implements FromCollection
     */
     public function collection()
     {   
+        $headers = array_reverse(['اسم المورد','تاريخ الشراء ','التكلفة','تعليق  ','اسم المٌشترى ','سُجل بواسطة']);
 
-    	$c = collect([['اسم المورد','تاريخ الشراء	','التكلفة','تعليق  ','اسم المٌشترى	']]);
+    	$c = collect([$headers]);
     	
         if($this->from == '' or $this->to == ''){
             $purchases_array = Purchase::all();
     	}else{
             $purchases_array = Purchase::whereBetween('purchase_date', [$this->from, $this->to])->orWhereDate('purchase_date',$this->to)->get();
-            // $purchases_array1 = Purchase::whereDate('created_at',$this->to." 00:00:00")->get();
 
         }
    
     	foreach ( $purchases_array as $value) {
     	
-    		$purchase = new Purchase();      
-            // 
-     	    // if($value['created_at'] >= "2018-08-08" and $value['created_at'] <= "2018-08-12"){
-     		
+    		$purchase = new Purchase();     
+
+            $purchase->created_by = $value['created_by'];
+			
+            $purchase->officer = $value['officer'];
+
+            $purchase->comment = $value['comment'];
+    	   
+            $purchase->cost = $value['cost'];
+
+            $purchase->purchase_date = $value['purchase_date'];
+
             $purchase->resource_name = $value['resource_name'];
-	    
-		    $purchase->purchase_date = $value['purchase_date'];
-	    
-	        $purchase->cost = $value['cost'];
-		
-			$purchase->comment = $value['comment'];
-		
-			$purchase->officer = $value['officer'];
-    	
+
+    
+
+
     		$c = $c->concat([$purchase]);
-            // }
+
     	
     	}
-    	//$c->dd();
+ 
     	 return $c;
   
     }
