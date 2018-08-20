@@ -27,7 +27,7 @@ class SalaryExport implements FromCollection
     	if($this->from == '' or $this->to == ''){
             $salaries_array = Salary::all();
         }else{
-            $salaries_array = Salary::whereBetween('delivery_date', [$this->from, $this->to)->orWhereDate('delivery_date',$this->to)->get();
+            $salaries_array = Salary::whereBetween('delivery_date', [$this->from, $this->to])->orWhereDate('delivery_date',$this->to)->get();
         }
     	
     	foreach ($salaries_array as $value) {
