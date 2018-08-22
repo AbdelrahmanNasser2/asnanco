@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
 	<div class="col-md-12">
-
+	@if(session('role') == 1 || session('role') == 2 || session('role') == 5)
 		<h3 align="center">إضافة فاتورة صيانة اجهزه</h3>
 		<br/>
 		@if(count($errors) > 0)
@@ -52,6 +52,9 @@
 		<br/>
 		<br/>
 		<br/>
+	@else
+		@include('httpAuth')
+	@endif
 	</div>
 </div>
 

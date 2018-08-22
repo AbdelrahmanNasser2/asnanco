@@ -34,7 +34,21 @@
 					</form>
 					<a href="{{action('UsersController@edit', $row['id'])}}" class="btn btn-success">تعديل</a>
 				</td>
-				<td align="center">@if($row['Role_type'] == 1) {{"Admin"}} @else {{"User"}} @endif</td>
+				<td align="center"> 
+					@if($row['Role_type'] == 1) 
+						{{"ادمن"}} 
+				   	@elseif($row['Role_type'] == 2) 
+				   		{{"مستخدم عادى"}} 
+			   		@elseif($row['Role_type'] == 3) 
+			   			{{"دكتور"}} 
+			   		@elseif($row['Role_type'] == 4) 
+			   		{{"مسؤول مشتريات"}} 
+			   		@elseif($row['Role_type'] == 5) 
+			   		{{"مسؤول صيانه اجهزه"}} 
+			   		@elseif($row['Role_type'] == 6) 
+			   		{{"مسؤول معامل"}} 
+				   	@endif
+				</td>
 				<td align="center">{{$row['Password']}}</td>
 				<td align="right">{{$row['UserName']}}</td>
 			</tr>

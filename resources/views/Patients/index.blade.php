@@ -11,6 +11,7 @@
 </style>
 <div class="row">
 	<div class="col-md-12">
+	@if(session('role') == 1 || session('role') == 2 || session('role') == 3)
 		<h3 align="center">المرضى</h3>
 		<br/>
 		@if($message = Session::get('success'))
@@ -36,7 +37,7 @@
 			</form>
 		</div>
 		@endif
-		@if(session('role') == 2)
+		@if(session('role') == 2 || session('role') == 3)
 		<div class="col-md-4"></div>
 		@endif
 		<div class="form-group col-md-4">
@@ -66,6 +67,9 @@
 			</form>
 		</div>
 		@endif
+	@else
+		@include('httpAuth')
+	@endif
 	</div>
 </div>
 <script type="text/javascript">

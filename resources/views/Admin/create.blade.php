@@ -33,9 +33,17 @@
 			<div class="form-group" align="right">
 				<label for="male">: النوع</label>
 					<br>
-				Admin <input type="radio" name="Role_type" value="1" checked>
+				ادمن <input type="radio" name="Role_type" value="1" checked>
 					<br>
-  				Regular User <input type="radio" name="Role_type" value="2">
+  				مستخدم عادى <input type="radio" name="Role_type" value="2">
+  					<br>
+				دكتور <input type="radio" name="Role_type" value="3">
+  					<br>
+  				مسؤول مشتريات <input type="radio" name="Role_type" value="4">
+  					<br>
+  				مسؤول صيانه اجهزه <input type="radio" name="Role_type" value="5">
+  					<br>
+  				مسؤول معامل <input type="radio" name="Role_type" value="6">
   					<br>
 			</div>
 			<div class="form-group" align="right">

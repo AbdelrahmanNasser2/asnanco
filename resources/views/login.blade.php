@@ -61,9 +61,7 @@
                     </form>
                 </div>
             @else
-
                 @include('httpAuth')
-
             @endif
             </div>
         </div>

@@ -1,7 +1,6 @@
 @extends('master')
 
 @section('content')
-
 <div class="row">
 	<div class="col-md-12">
 	@if(session('role') == 1)
@@ -29,9 +28,17 @@
 			<div class="form-group" align="right">
 				<label for="male" >: النوع</label>
 					<br>
-				Admin <input type="radio" name="Role_type" value="1" <?php if($user->Role_type == 1) echo "checked"; ?> >
+				ادمن <input type="radio" name="Role_type" value="1" <?php if($user->Role_type == 1) echo "checked"; ?> >
 					<br>
-  				Regular User <input type="radio" name="Role_type" value="2"  <?php if($user->Role_type == 2) echo "checked"; ?> >
+  				مستخدم عادى <input type="radio" name="Role_type" value="2"  <?php if($user->Role_type == 2) echo "checked"; ?> >
+  					<br>
+  				دكتور <input type="radio" name="Role_type" value="3"  <?php if($user->Role_type == 3) echo "checked"; ?> >
+  					<br>
+  				مسؤول مشتريات <input type="radio" name="Role_type" value="4"  <?php if($user->Role_type == 4) echo "checked"; ?> >
+  					<br>
+  				مسؤول صيانه اجهزه <input type="radio" name="Role_type" value="5"  <?php if($user->Role_type == 5) echo "checked"; ?> >
+  					<br>
+  				مسؤول معامل <input type="radio" name="Role_type" value="6"  <?php if($user->Role_type == 6) echo "checked"; ?> >
   					<br>
 			</div>
 			<div class="form-group" align="right">

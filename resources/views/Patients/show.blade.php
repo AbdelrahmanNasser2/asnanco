@@ -3,9 +3,10 @@
 @section('content')
 
 
-
+@if(session('role') == 1 || session('role') == 2 || session('role') == 3)	
 <div class="row">
 	<div class="col-md-12">
+
 		@if($message = Session::get('success'))
 		<div class="alert alert-success" style="text-align:right;">
 			<p>{{ $message }}</p>
@@ -102,6 +103,9 @@
 		</table>	
 	</div>
 	@endif
+@else
+	@include('httpAuth')
+@endif
 <script type="text/javascript">
 	$(document).ready(function(){
 		$("#delete_form").on('submit', function(){

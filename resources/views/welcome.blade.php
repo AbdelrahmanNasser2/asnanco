@@ -58,24 +58,25 @@
             
              <div class="content">
                 <div class="title m-b-md">
-                    Asnanco
+                    <!-- Asnanco -->
+                    <img src="images/logo.jpeg">
                 </div>
 
                 <div class="links">
-                    @if(session('role') == 1 || session('role') == 2)
+                    @if(session('role') == 1 || session('role') == 2 || session('role') == 3)
                         <a href="{{url('Patients')}}" style="font-size: 18px;">قسم المرضى</a>
                     @endif
 
                     @if(session('role') == 1)
                         <a href="{{url('Purchases')}}" style="font-size: 18px;">المشتريات</a>
-                    @elseif (session('role') == 2)
+                    @elseif (session('role') == 2 || session('role') == 4)
                         <a href="{{url('Purchases/create')}}" style="font-size: 18px;">المشتريات</a>
                     @endif
 
 
                     @if(session('role') == 1)
                         <a href="{{url('RepairDevices')}}" style="font-size: 18px;">صيانة الاجهزه</a>
-                    @elseif (session('role') == 2)
+                    @elseif (session('role') == 2 || session('role') == 5)
                         <a href="{{url('RepairDevices/create')}}" style="font-size: 18px;">صيانة الاجهزه</a>
                     @endif
                     
@@ -84,7 +85,7 @@
                         <a href="{{url('Salary')}}" style="font-size: 18px;">المرتبات</a>
                     @endif
 
-                    @if(session('role') == 1 || session('role') == 2)
+                    @if(session('role') == 1 || session('role') == 2 || session('role') == 6)
                         <a href="{{url('Lab')}}" style="font-size: 18px;">المعامل</a>
                     @endif
 
