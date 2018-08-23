@@ -59,7 +59,8 @@
              <div class="content">
                 <div class="title m-b-md">
                     <!-- Asnanco -->
-                    <img src="images/logo.jpeg">
+                    <!-- <img src="images/logo.jpeg"> -->
+                    <img src="images/logo1.png">
                 </div>
 
                 <div class="links">
