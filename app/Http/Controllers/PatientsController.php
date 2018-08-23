@@ -187,6 +187,7 @@ class PatientsController extends Controller
         $visit->comment = $request->get('comment');
         $visit->patient_id = $request->get('patient_id');
         $visit->created_by = session('username');
+        $visit->visit_type = $request->get('selection');
         $visit->save();
 
         return redirect('Patients/'. $request->get('patient_id'))->with('success', 'تم إضافة الزياره');

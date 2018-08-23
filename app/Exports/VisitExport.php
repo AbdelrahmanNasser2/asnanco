@@ -20,7 +20,7 @@ class VisitExport implements FromCollection
     */
     public function collection()
     {
-    	$rev = array_reverse(['اسم المريض','اسم الدكتور','تاريخ الزيارة','المدفوع','المتبقي  ','تعليق','سُجل بواسطة']);
+    	$rev = array_reverse(['اسم المريض','اسم الدكتور','تاريخ الزيارة','المدفوع','المتبقي  ','تعليق','نوع الزيارة','سُجل بواسطة']);
         $c = collect([$rev]);
     	
     	if($this->from == '' or $this->to == ''){
@@ -40,6 +40,8 @@ class VisitExport implements FromCollection
      		$visit_array = array();
 
      		$visit_array[] = $value['created_by'];
+
+            $visit_array[] = $value['visit_type'];
 
 			$visit_array[] = $value['comment'];
 
