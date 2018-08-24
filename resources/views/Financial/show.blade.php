@@ -1,7 +1,8 @@
+
 @extends('master')
 
 @section('content')
-
+<!-- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script> -->
 <style type="text/css">
 	.lab_img:hover{
 		cursor: pointer;
@@ -16,6 +17,10 @@
 			<br/>
 			<br/>
 		</div>
+		<div class="col-md-2"></div>
+		<div id="piechart" class="col-md-6" style="width:750px; height:450px; margin-left:50px;">
+
+	    </div>
 		<table id="financial_table" class="table table-bordered table-striped">
 			<thead>
 				<th style="text-align:center;"><H3>التكلفة</H3></th>
@@ -64,6 +69,28 @@
 	</div>
 </div>
 <script type="text/javascript">
-		
+	  var visit_money = <?php echo $money["visit_money"]; ?> ;
+	  var total_money = <?php echo  $money['purchase_money'] + $money['repair_device_money'] + $money['salary_money'] + $money['lab_money']; ?> ;
+	  
+	  google.charts.load('current', {'packages':['corechart']});
+	  google.charts.setOnLoadCallback(drawChart);
+
+	  function drawChart() {
+
+	    var data = google.visualization.arrayToDataTable([
+	      ['money_type', 'cost'],
+	      ['ايرادات', visit_money],
+	      ['مصروفات', total_money]
+	    ]);
+
+	    var options = {
+	      title: 'البيان المالى',
+	      is3D: true,
+	    };
+
+	    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+	    chart.draw(data, options);
+	  }
 </script>
 @endsection

@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use DB;
 
 class FinancialController extends Controller
+{
     /**
      * Display a listing of the resource.
      *
@@ -87,7 +88,7 @@ class FinancialController extends Controller
               "repair_device_money" => $repair_device_money,
               "salary_money"        => $salary_money,
               "lab_money"           => $lab_money
-            );  
+            ); 
 
             return view('Financial.show', compact('money'));
         }
