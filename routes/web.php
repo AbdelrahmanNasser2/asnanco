@@ -57,3 +57,9 @@ Route::get('Visits/edit/{id}', 'PatientsController@editVisit')->name('Visits.edi
 Route::post('Visits/update/{id}', 'PatientsController@updateVisit')->name('Visits.update');
 
 Route::get('Lab/excel/{id}', 'LabController@excel')->name('Labs.excel');
+
+Route::resource('Financial','FinancialController');
+
+Route::get('index', 'FinancialController@index')->name('index');
+
+Route::post('Financial/search', 'FinancialController@search');

@@ -91,6 +91,10 @@
                     @endif
 
                     @if(session('role') == 1)
+                        <a href="{{url('Financial')}}" style="font-size: 18px;">البيان مالى</a>
+                    @endif
+
+                    @if(session('role') == 1)
                         <a href="{{url('Admin')}}" style="font-size: 18px;">وحده التحكم</a>
                     @endif
                 </div>
