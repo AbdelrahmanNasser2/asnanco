@@ -2,7 +2,9 @@
 @extends('master')
 
 @section('content')
-<!-- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script> -->
+<!-- <script src="https://www.gstatic.com/charts/loader.js"></script> -->
+<script src="{{asset('/js/loader.js')}}"></script>
+
 <style type="text/css">
 	.lab_img:hover{
 		cursor: pointer;
