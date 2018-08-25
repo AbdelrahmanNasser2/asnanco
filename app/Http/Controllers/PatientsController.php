@@ -175,7 +175,8 @@ class PatientsController extends Controller
             'visit_date' => 'required | date',
             'paid'       => 'required | numeric',
             'remain'     => 'required | numeric',
-            'comment'    => 'required'
+            'comment'    => 'required',
+            'selection'  => 'required'
         ]);
 
         $visit = new Visit();
@@ -216,7 +217,8 @@ class PatientsController extends Controller
             'visit_date' => 'required | date',
             'paid'       => 'required | numeric',
             'remain'     => 'required | numeric',
-            'comment'    => 'required'
+            'comment'    => 'required',
+            'selection'  => 'required'
         ]);
 
         $visit = Visit::find($id);
@@ -228,7 +230,8 @@ class PatientsController extends Controller
         $visit->paid = $request->get('paid');
         $visit->remain = $request->get('remain');
         $visit->comment = $request->get('comment');
-
+        $visit->visit_type = $request->get('selection');
+        
         $visit->save();
 
         return redirect('Patients/'. $patient_id)->with('success', 'تم التعديل');

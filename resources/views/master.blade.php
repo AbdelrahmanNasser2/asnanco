@@ -22,7 +22,6 @@
     <script src="{{asset('/js/lib/data-table/buttons.colVis.min.js')}}"></script>
     <script src="{{asset('/js/lib/data-table/datatables-init.js')}}"></script>
 
-
     <link href="{{asset('/css/bootstrap.css')}}" rel="stylesheet">
     <link rel="apple-touch-icon" href="apple-icon.png">
     <link rel="shortcut icon" href="favicon.ico">

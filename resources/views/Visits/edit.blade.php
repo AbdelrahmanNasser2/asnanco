@@ -46,6 +46,18 @@
 				required="" style="resize: none; text-align:right;">{{ $visit['comment'] }}</textarea>
 			</div>
 			<div class="form-group">
+				<label style="float: right; font-size: 20px;">نوع الزيارة</label>
+				<select name="selection" class="form-control" style="font-size: 20px;direction: rtl;">
+					@if($visit['visit_type'] == 'زيارة اولى')
+						<option name="زيارة اولى">زيارة اولى</option>
+						<option name="متابعة">متابعة</option>
+					@else
+						<option name="زيارة اولى">زيارة اولى</option>
+						<option name="متابعة" selected>متابعة</option>
+					@endif
+				</select>
+			</div>
+			<div class="form-group">
 				<input type="submit" name="submit" class="btn btn-primary col-md-4 col-md-offset-4" value="تعديل" style="font-size: 20px;">
 			</div>
 		</form>

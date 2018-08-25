@@ -121,12 +121,12 @@ class LabController extends Controller
         }
     }
 
-    public function show($id)
-    {
-        $lab = Lab::find($id);
+    // public function show($id)
+    // {
+    //     $lab = Lab::find($id);
         
-        return view('Lab.show', compact('lab'));
-    }
+    //     return view('Lab.show', compact('lab'));
+    // }
 
     public function destroy($id)
     {
