@@ -81,8 +81,13 @@ class PurchaseController extends Controller
     {     
         $from = $req->get('from');
         $to   = $req->get('to');
-        // return (new PurchaseExport($from,$to))->download('purchase.xlsx');
-        
+        if($from == '' and $to == ''){
+
+        }elseif ($from == '') {
+           $from = '0000-01-01';
+        }elseif ($to == '') {
+            $to = '9999-01-01';
+        }
         return Excel::download(new PurchaseExport($from,$to), 'purchase.xlsx');;
     }
 
@@ -146,24 +151,6 @@ class PurchaseController extends Controller
 
     public function excel()
     {
-       
-        $purchases = Purchases::all();
-        $purchases_array = array('اسم المشترى','تعليق  ','التكلفة','تاريخ الشراء','اسم المورد' );
-        foreach ($purchases as $purchase) {
-               $purchases_array[] = array('اسم المشترى' => $purchase["resource_name"],
-                'تعليق' => $purchase["comment"],
-                'التكلفة' => $purchase["cost"],
-                'تاريخ الشراء' => $purchase["purchase_date"],
-                'اسم المورد' => $purchase["officer"]);
-           }   
-           Excel::create('Purchase Data',function($excel) use( $purchases_array) {
-                $excel->setTitle('Purchase Data');
-                $excel->sheet('Purchase Data' ,function($sheet) use($purchases_array){
-                    $sheet->fromArray($purchases_array,null,'A1',false,false);
-                });
-           })->download('xlsx');
-
-        return redirect('Purchases');
     }
 
 }

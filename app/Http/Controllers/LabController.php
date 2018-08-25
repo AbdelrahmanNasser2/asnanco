@@ -145,7 +145,13 @@ class LabController extends Controller
     {   
         $from = $req->get('from');
         $to = $req->get('to');
-
+        if($from == '' and $to == ''){
+                 
+        }elseif ($from == '') {
+           $from = '0000-01-01';
+        }elseif ($to == '') {
+            $to = '9999-01-01';
+        }
         return Excel::download(new LabExport($from,$to),'labs.xlsx');
     }
 }

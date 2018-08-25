@@ -239,7 +239,13 @@ class PatientsController extends Controller
     {
         $from = $req->get('from');
         $to   = $req->get('to');
+        if($from == '' and $to == ''){
 
+        }elseif ($from == '') {
+           $from = '0000-01-01';
+        }elseif ($to == '') {
+            $to = '9999-01-01';
+        }
         return Excel::download(new PatientExport($from,$to),'patients.xlsx');
     }
 
@@ -247,6 +253,14 @@ class PatientsController extends Controller
     {
         $from = $req->get('from');
         $to   = $req->get('to');
+        
+        if($from == '' and $to == ''){
+
+        }elseif ($from == '') {
+           $from = '0000-01-01';
+        }elseif ($to == '') {
+            $to = '9999-01-01';
+        }
         
         return Excel::download(new VisitExport($from,$to),'visits.xlsx');
     }

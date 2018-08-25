@@ -21,9 +21,10 @@ class SalaryExport implements FromCollection
     
     public function collection()
     {
-        
-    	$c = collect([['اسم الموظف','تاريخ الأستلام	','عدد أيام الشغل	','عدد أيام الغياب	','عدد أيام التأخير	','المرتب	','قيمة الخصومات	','صافى المرتب	']]);
+        $rev = array_reverse(['اسم الموظف','تاريخ الأستلام  ','عدد أيام الشغل   ','عدد أيام الغياب  ','عدد أيام التأخير ','المرتب   ','قيمة الخصومات    ','صافى المرتب  ']);
+    	$c = collect([$rev]);
     	
+
     	if($this->from == '' or $this->to == ''){
             $salaries_array = Salary::all();
         }else{
@@ -34,21 +35,21 @@ class SalaryExport implements FromCollection
     	
     		$salary = new Salary();
 
+            $salary->net_salary = $value['net_salary'];
+
+            $salary->discount = $value['discount'];
+
+            $salary->salary = $value['salary'];
+
+            $salary->delay_days = $value['delay_days'];
+
+            $salary->absence_days = $value['absence_days'];
+
+            $salary->work_days = $value['work_days'];
+
+            $salary->delivery_date = $value['delivery_date'];
+
   			$salary->company_name = $value['emp_name'];	
-				
-	        $salary->delivery_date = $value['delivery_date'];
-	       
-	        $salary->work_days = $value['work_days'];
-	       
-	        $salary->absence_days = $value['absence_days'];
-	       	       
-	        $salary->delay_days = $value['delay_days'];
-
-	        $salary->salary = $value['salary'];
-	        
-	        $salary->discount = $value['discount'];
-
-	        $salary->net_salary = $value['net_salary'];
 	 
 			$c = $c->concat([$salary]);
 
