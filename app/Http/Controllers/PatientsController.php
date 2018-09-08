@@ -41,6 +41,7 @@ class PatientsController extends Controller
     {
         $this->validate($request , [
             'name'              => 'required',
+            'age'               => 'required | numeric',
             'phone'             => 'required | numeric',
             'address'           => 'required',
             'general_diagnosis' => 'required',
@@ -51,6 +52,7 @@ class PatientsController extends Controller
         $patient = new Patient();
 
         $patient->name = $request->get('name');
+        $patient->age = $request->get('age');
         $patient->phone = $request->get('phone');
         $patient->address = $request->get('address');
         $patient->general_diagnosis = $request->get('general_diagnosis');
@@ -122,6 +124,7 @@ class PatientsController extends Controller
     {
         $this->validate($request , [
             'name'              => 'required',
+            'age'               => 'required | numeric',
             'phone'             => 'required | numeric',
             'address'           => 'required',
             'general_diagnosis' => 'required',
@@ -132,6 +135,7 @@ class PatientsController extends Controller
         $patient = Patient::find($id);
 
         $patient->name = $request->get('name');
+        $patient->age = $request->get('age');
         $patient->phone = $request->get('phone');
         $patient->address = $request->get('address');
         $patient->general_diagnosis = $request->get('general_diagnosis');

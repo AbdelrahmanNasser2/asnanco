@@ -24,6 +24,10 @@
 				<input type="text" name="name" class="form-control" placeholder="اسم المريض" required="" style="text-align:right;">
 			</div>
 			<div class="form-group">
+				<label style="float: right; font-size: 20px;">السن</label>
+				<input type="number" min="0" name="age" class="form-control" placeholder="السن" required="" style="text-align:right;">
+			</div>
+			<div class="form-group">
 				<label style="float: right; font-size: 20px;">الموبايل</label>
 				<input type="number" min="0" minlength="8" name="phone" class="form-control" placeholder="الموبايل" required="" style="text-align:right;">
 			</div>

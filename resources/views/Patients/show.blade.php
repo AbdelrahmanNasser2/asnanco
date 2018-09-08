@@ -28,6 +28,10 @@
 				<td style="text-align: center;">الاسم</td>
 			</tr>
 			<tr>
+				<td style="text-align: center;">{{ $patient['age'] }}</td>
+				<td style="text-align: center;">السن</td>
+			</tr>
+			<tr>
 				<td style="text-align: center;">{{ $patient['phone'] }}</td>
 				<td style="text-align: center;">الموبايل</td>
 			</tr>
