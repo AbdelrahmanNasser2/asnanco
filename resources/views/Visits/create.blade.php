@@ -35,12 +35,16 @@
 				<input type="date" name="visit_date" class="form-control" placeholder="تاريخ الزياره" required="" style="text-align:right;">
 			</div>
 			<div class="form-group">
+				<label style="float: right; font-size: 20px;">التكلفة</label>
+				<input type="number" step="0.1" min="0" name="cost" class="form-control" placeholder="التكلفة" required="" style="text-align:right;">
+			</div>
+			<div class="form-group">
 				<label style="float: right; font-size: 20px;">المدفوع</label>
-				<input type="number" step="0.01" min="0" name="paid" class="form-control" placeholder="المدفوع" required="" style="text-align:right;">
+				<input type="number" step="0.1" min="0" name="paid" class="form-control" placeholder="المدفوع" required="" style="text-align:right;">
 			</div>
 			<div class="form-group">
 				<label style="float: right; font-size: 20px;">المتبقي</label>
-				<input type="number" step="0.01" min="0" name="remain" class="form-control" placeholder="المتبقي" required="" style="text-align:right;">
+				<input type="number" step="0.1" min="0" name="remain" class="form-control" placeholder="المتبقي" required="" style="text-align:right;">
 			</div>
 			<div class="form-group">
 				<label style="float: right; font-size: 20px;">تعليق</label>

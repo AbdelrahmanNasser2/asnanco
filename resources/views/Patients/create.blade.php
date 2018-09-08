@@ -4,7 +4,7 @@
 
 <div class="row">
 	<div class="col-md-12">
-	@if(session('role') == 1 || session('role') == 2 || session('role') == 3)	
+	@if(session('role') == 1 || session('role') == 2 || session('role') == 3 || session('role') == 7)	
 		<h3 align="center">إضافة مريض</h3>
 		<br/>
 		@if(count($errors) > 0)

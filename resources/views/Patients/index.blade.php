@@ -11,7 +11,7 @@
 </style>
 <div class="row">
 	<div class="col-md-12">
-	@if(session('role') == 1 || session('role') == 2 || session('role') == 3)
+	@if(session('role') == 1 || session('role') == 2 || session('role') == 3 || session('role') == 7)
 		<h3 align="center">المرضى</h3>
 		<br/>
 		@if($message = Session::get('success'))
@@ -37,7 +37,7 @@
 			</form>
 		</div>
 		@endif
-		@if(session('role') == 2 || session('role') == 3)
+		@if(session('role') == 2 || session('role') == 3 || session('role') == 7)
 		<div class="col-md-4"></div>
 		@endif
 		<div class="form-group col-md-4">

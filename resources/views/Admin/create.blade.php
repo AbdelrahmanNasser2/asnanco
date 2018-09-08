@@ -45,6 +45,8 @@
   					<br>
   				مسؤول معامل <input type="radio" name="Role_type" value="6">
   					<br>
+  				 موظف استقبال <input type="radio" name="Role_type" value="7">
+  					<br>
 			</div>
 			<div class="form-group" align="right">
 				<input type="submit" class="btn btn-primary" value="اضافه" />

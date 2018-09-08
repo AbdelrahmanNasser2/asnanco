@@ -40,6 +40,8 @@
   					<br>
   				مسؤول معامل <input type="radio" name="Role_type" value="6"  <?php if($user->Role_type == 6) echo "checked"; ?> >
   					<br>
+				مسؤول معامل <input type="radio" name="Role_type" value="7"  <?php if($user->Role_type == 7) echo "checked"; ?> >
+  					<br>
 			</div>
 			<div class="form-group" align="right">
 				<input type="submit" class="btn btn-primary" value="تعديل" />

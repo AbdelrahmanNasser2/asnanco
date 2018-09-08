@@ -47,6 +47,8 @@
 			   		{{"مسؤول صيانه اجهزه"}} 
 			   		@elseif($row['Role_type'] == 6) 
 			   		{{"مسؤول معامل"}} 
+				   	@elseif($row['Role_type'] == 7) 
+			   		{{"موظف استقبال"}} 
 				   	@endif
 				</td>
 				<td align="center">{{$row['Password']}}</td>

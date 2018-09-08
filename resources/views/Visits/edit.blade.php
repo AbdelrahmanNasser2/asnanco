@@ -4,7 +4,7 @@
 
 <div class="row">
 	<div class="col-md-12">
-	@if(session('role') == 1)
+	@if(session('role') == 1 || session('role') == 3)
 		<h3 align="center">تعديل زياره</h3>
 		<br/>
 		@if(count($errors) > 0)
@@ -31,13 +31,18 @@
 				required="" value="{{ $visit['visit_date'] }}" style="text-align:right;">
 			</div>
 			<div class="form-group">
+				<label style="float: right; font-size: 20px;">التكلفة</label>
+				<input type="number" step="0.1" min="0" name="cost" class="form-control" placeholder="التكلفة" 
+				required="" value="{{ $visit['cost'] }}" style="text-align:right;">
+			</div>
+			<div class="form-group">
 				<label style="float: right; font-size: 20px;">المدفوع</label>
-				<input type="number" step="0.01" min="0" name="paid" class="form-control" placeholder="المدفوع" 
+				<input type="number" step="0.1" min="0" name="paid" class="form-control" placeholder="المدفوع" 
 				required="" value="{{ $visit['paid'] }}" style="text-align:right;">
 			</div>
 			<div class="form-group">
 				<label style="float: right; font-size: 20px;">المتبقي</label>
-				<input type="number" step="0.01" min="0" name="remain" class="form-control" placeholder="المتبقي" 
+				<input type="number" step="0.1" min="0" name="remain" class="form-control" placeholder="المتبقي" 
 				required="" value="{{ $visit['remain'] }}" style="text-align:right;">
 			</div>
 			<div class="form-group">

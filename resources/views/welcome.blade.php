@@ -64,7 +64,7 @@
                 </div>
 
                 <div class="links">
-                    @if(session('role') == 1 || session('role') == 2 || session('role') == 3)
+                    @if(session('role') == 1 || session('role') == 2 || session('role') == 3 || session('role') == 7)
                         <a href="{{url('Patients')}}" style="font-size: 18px;">قسم المرضى</a>
                     @endif
 

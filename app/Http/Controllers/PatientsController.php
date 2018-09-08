@@ -61,7 +61,7 @@ class PatientsController extends Controller
 
         $patient_id = $patient->id;
 
-        return redirect()->route('Visits.create' , $patient_id)->with('success', 'تم إضافة المريض');
+        return redirect('Patients/'. $request->get('patient_id'))->with('success', 'تم إضافة المريض');
 
     }
 
@@ -174,6 +174,7 @@ class PatientsController extends Controller
             'drname'     => 'required',
             'visit_date' => 'required | date',
             'paid'       => 'required | numeric',
+            'cost'       => 'required | numeric',
             'remain'     => 'required | numeric',
             'comment'    => 'required',
             'selection'  => 'required'
@@ -183,6 +184,7 @@ class PatientsController extends Controller
 
         $visit->dr_name = $request->get('drname');
         $visit->visit_date = $request->get('visit_date');
+        $visit->cost = $request->get('cost');
         $visit->paid = $request->get('paid');
         $visit->remain = $request->get('remain');
         $visit->comment = $request->get('comment');
@@ -215,6 +217,7 @@ class PatientsController extends Controller
         $this->validate($request, [
             'drname'     => 'required',
             'visit_date' => 'required | date',
+            'cost'       => 'required | numeric',
             'paid'       => 'required | numeric',
             'remain'     => 'required | numeric',
             'comment'    => 'required',
@@ -227,6 +230,7 @@ class PatientsController extends Controller
 
         $visit->dr_name = $request->get('drname');
         $visit->visit_date = $request->get('visit_date');
+        $visit->cost = $request->get('cost');
         $visit->paid = $request->get('paid');
         $visit->remain = $request->get('remain');
         $visit->comment = $request->get('comment');
