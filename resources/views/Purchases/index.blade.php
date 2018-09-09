@@ -33,6 +33,7 @@
 		<table id="data-table-purchases" class="table table-bordered table-striped">
 			<thead>
 				<th style="text-align:center;">تعديل / حذف</th>
+				<th style="text-align:center;">الصورة</th>
 				<th style="text-align:center;">اسم المٌشترى</th>
 				<th style="text-align:center;">تعليق</th>
 				<th style="text-align:center;">التكلفه</th>
@@ -49,6 +50,20 @@
 							<input type="submit" value="حذف" class="btn btn-danger">
 						</form>
 						<a href="{{ action('PurchaseController@edit',$purchase['id']) }}" class="btn btn-success">تعديل</a>   
+					</td>
+					<td align="Center">
+						@if($purchase['img_name'])
+						<img src="/images/Purchases/{{ $purchase['img_name'] }}" width="100" height="100" class="lab_img" data-toggle="modal" data-target="#lab_img_modal_{{ $purchase['id'] }}">
+						<div class="modal fade" id="lab_img_modal_{{ $purchase['id'] }}" role="dialog">
+		                    <div class="modal-dialog modal-md">
+		                        <div class="modal-content">
+		                            <div class="modal-body" style="text-align: center;">
+		                                <img src="/images/Purchases/{{ $purchase['img_name'] }}" class="img-responsive img-thumbnail" alt="Lab Image">
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+		                @endif
 					</td>
 					<td align="Center">{{ $purchase["officer"] }}</td>
 					<td align="Center" style="white-space: pre;">{{ $purchase["comment"] }}</td>

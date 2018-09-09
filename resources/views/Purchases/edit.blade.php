@@ -15,7 +15,7 @@
 				</ul>
 			</div>
 		@endif
-		<form method="post" action="{{ action('PurchaseController@update',$purchase['id']) }}">
+		<form method="post" action="{{ action('PurchaseController@update',$purchase['id']) }}" enctype="multipart/form-data">
 			{{csrf_field()}}
 			{{ method_field('PATCH') }}
 			<div class="form-group">
@@ -37,6 +37,11 @@
 			<div class="form-group">
 				<label style="float: right; font-size: 20px;">تعليق</label>
 				<textarea rows="4" name="comment" class="form-control" placeholder="تعليق"  required=""style="resize:none; text-align:right;">{{ $purchase['comment']}}</textarea>
+			</div>
+			<div class="form-group">
+				<label style="float:right; font-size: 20px;">الصورة</label>
+				<input type="file" name="select_file" />
+				<span class="text-muted">jpeg, jpg, png, gif</span>
 			</div>
 			<div class="form-group">
 			<input style="font-size: 20px;" type="submit" name="submit" value="تعديل " class="col-md-4 col-md-offset-4 btn btn-primary">

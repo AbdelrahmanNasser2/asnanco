@@ -46,25 +46,33 @@ class LabController extends Controller
             'cost'         => 'required | numeric',
             'comment'      => 'required',
             'case_closed'  => 'required',
-            'select_file'  => 'required|image|mimes:jpeg,jpg,png,gif'
+            'select_file'  => 'image|mimes:jpeg,jpg,png,gif'
         ]);
 
-        $image = $request->file('select_file');
-
-		$imgname = $image->getClientOriginalName();
-
-        $image->move(public_path('images'), $imgname);
+        
 
         $lab = new Lab([
             'lab_name'      => $request->get('labName'),
             'delivery_date' => $request->get('deliveryDate'),
             'receipt_date'  => $request->get('receiptDate'),
-            'cost'          => $request->get('cost'),
-            'img_name'      => $imgname
+            'cost'          => $request->get('cost')
         ]);
+
         $lab->case_closed = $request->get('case_closed');
         $lab->comment     = $request->get('comment');
         $lab->created_by  = session('username');
+
+        if($request->file('select_file') != ''){
+
+            $image = $request->file('select_file');
+
+            $imgname = $image->getClientOriginalName();
+
+            $image->move(public_path('images/Labs'), $imgname);
+            
+            $lab->img_name = $imgname;
+        }
+
         $lab->save();
 
         return redirect()->route('Lab.index')->with('success', 'تم إضافة المعمل');
@@ -103,7 +111,7 @@ class LabController extends Controller
 
     		$imgname = $image->getClientOriginalName();
 
-            $image->move(public_path('images'), $imgname);
+            $image->move(public_path('images/Labs'), $imgname);
 
             
             $lab->img_name = $imgname;
@@ -141,7 +149,7 @@ class LabController extends Controller
 
         $imgname = $lab->img_name;
 
-   		unlink("images/" . $imgname);
+   		unlink("images/Labs/" . $imgname);
    	
 		$lab->delete();
 

@@ -51,8 +51,11 @@ class PurchaseController extends Controller
             'purchase_date'  => 'required',
             'cost'           => 'required',
             'comment'        => 'required',
-            'officer'        => 'required'
+            'officer'        => 'required',
+            'select_file'  => 'image|mimes:jpeg,jpg,png,gif'
         ]);
+
+
 
         $purchase = new Purchase();
         $purchase->resource_name = $request->get('resource_name');
@@ -61,6 +64,18 @@ class PurchaseController extends Controller
         $purchase->comment       = $request->get('comment');
         $purchase->officer       = $request->get('officer');
         $purchase->created_by    = session('username');
+
+        if($request->file('select_file') != ''){
+
+            $image = $request->file('select_file');
+
+            $imgname = $image->getClientOriginalName();
+
+            $image->move(public_path('images/Purchases'), $imgname);
+
+            $purchase->img_name = $imgname;
+        }
+
         $purchase->save();
 
         if($request->session()->has('role')){
@@ -118,7 +133,8 @@ class PurchaseController extends Controller
             'purchase_date'  => 'required',
             'cost'           => 'required',
             'comment'        => 'required',
-            'officer'        => 'required'
+            'officer'        => 'required',
+            'select_file'  => 'image|mimes:jpeg,jpg,png,gif'
         ]);
 
         $purchase = Purchase::find($id);
@@ -127,6 +143,19 @@ class PurchaseController extends Controller
         $purchase->cost = $request->get('cost');
         $purchase->comment = $request->get('comment');
         $purchase->officer = $request->get('officer');
+
+        if($request->file('select_file') != ''){
+            
+            $image = $request->file('select_file');
+
+            $imgname = $image->getClientOriginalName();
+
+            $image->move(public_path('images/Purchases'), $imgname);
+
+            
+            $purchase->img_name = $imgname;
+        }
+
         $purchase->save();
 
         if($request->session()->has('role')){
@@ -145,7 +174,14 @@ class PurchaseController extends Controller
      */
     public function destroy($id)
     {
-        Purchase::destroy($id);
+        $Purchase = Purchase::find($id);
+
+        $imgname = $Purchase->img_name;
+
+        unlink("images/Purchases/" . $imgname);
+
+        $Purchase->delete();
+
         return redirect('Purchases')->with('success', 'تم الحذف');
     }
 
