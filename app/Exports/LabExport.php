@@ -20,7 +20,7 @@ class LabExport implements FromCollection
     public function collection()
     {
 
-        $headers = array_reverse(['اسم المعمل','تاريخ التسليم','تاريخ الأستلام','التكلفة','سُجل بواسطة']);
+        $headers = array_reverse(['اسم المعمل','تاريخ التسليم','تاريخ الأستلام','التعليق','التكلفة','سُجل بواسطة']);
         $c = collect([$headers]);
         
          if($this->from == '' and $this->to == ''){
@@ -35,6 +35,8 @@ class LabExport implements FromCollection
             $lab->created_by = $value['created_by'];
 
         	$lab->cost = $value['cost'];
+            
+            $lab->comment = $value['comment'];
 
         	$lab->receipt_date = $value['receipt_date'];
 

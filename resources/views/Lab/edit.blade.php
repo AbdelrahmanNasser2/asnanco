@@ -4,7 +4,7 @@
 
 <div class="row">
 	<div class="col-md-12">
-	@if(session('role') == 1)
+	@if(session('role') == 1 || session('role') == 2 || session('role') == 6)
 		<h3 align="center">تعديل فاتورة معمل</h3>
 		<br/>
 		@if(count($errors) > 0)
@@ -37,9 +37,20 @@
 
 			<div class="form-group">
 				<label style="float: right; font-size: 20px;">التكلفة</label>
-				<input type="number" step="0.01" min="0" name="cost" class="form-control" placeholder="التكلفة" value="{{ $lab['cost'] }}" required="" style="text-align:right;">
+				<input type="number" step="0.1" min="0" name="cost" class="form-control" placeholder="التكلفة" value="{{ $lab['cost'] }}" required="" style="text-align:right;">
 			</div>
-
+			<div class="form-group">
+				<label style="float: right; font-size: 20px;">تعليق</label>
+				<textarea rows="4" name="comment" class="form-control" placeholder="تعليق"  required=""style="resize:none; text-align:right;">{{ $lab['comment']}}</textarea>
+			</div>
+			<div class="form-group" align="right">
+				<label for="male">: انتهت </label>
+					<br>
+				نعم <input type="radio" name="case_closed" value="1" <?php if($lab->Role_type == 1) echo "checked"; ?>>
+					<br>
+				لا <input type="radio" name="case_closed" value="0" <?php if($lab->Role_type == 0) echo "checked"; ?>>
+					<br>
+			</div>
 			<div class="form-group">
 				<label style="float:right; font-size: 20px;">الصورة</label>
 				<input type="file" name="select_file" />

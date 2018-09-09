@@ -74,7 +74,9 @@
 		      	<thead>
 					<th style="text-align:center;">تعديل / حذف</th>
 					<th style="text-align:center;">الصورة</th>
+					<th style="text-align:center;">انتهت</th>
 					<th style="text-align:center;">التكلفة</th>
+					<th style="text-align:center;">تعليق</th>
 					<th style="text-align:center;">تاريخ الأستلام</th>
 					<th style="text-align:center;">تاريخ التسليم</th>
 					<th style="text-align:center;">اسم المعمل</th>
@@ -102,7 +104,15 @@
 			                    </div>
 			                </div>
 						</td>
+						<td style="text-align:center;">
+							@if($lb["case_closed"] == 0)
+								لا
+							@else
+								نعم
+							@endif
+						</td>
 						<td style="text-align:center;">{{ $lb["cost"] }}</td>
+						<td align="Center" style="white-space: pre;">{{ $lb["comment"] }}</td>
 						<td style="text-align:center;">{{ $lb["receipt_date"] }}</td>
 						<td style="text-align:center;">{{ $lb["delivery_date"] }}</td>
 						<td style="text-align:center;">{{ $lb["lab_name"] }}</td>

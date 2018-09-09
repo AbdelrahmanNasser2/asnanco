@@ -22,6 +22,7 @@
 @if (Route::has('login'))
     <div class="top-right links">
         @if (Session::has('username'))
+            <a href="{{ url('/')}}"><span style="font-size: 18px;">{{ session('username') }}</span></a>
             <a href="{{ url('/') }}">Home</a>
             <a href="{{url('/logout')}}">Logout</a>
         @else

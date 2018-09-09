@@ -35,9 +35,21 @@
 
 			<div class="form-group">
 				<label style="float: right; font-size: 20px;">التكلفة</label>
-				<input type="number" step="0.01" min="0" name="cost" class="form-control" placeholder="التكلفة" required="" style="text-align:right;">
+				<input type="number" step="0.1" min="0" name="cost" class="form-control" placeholder="التكلفة" required="" style="text-align:right;">
 			</div>
 
+			<div class="form-group">
+				<label style="float: right; font-size: 20px;">تعليق</label>
+				<textarea rows="4" name="comment" class="form-control" placeholder="تعليق" required="" style="resize:none;text-align:right;"></textarea>
+			</div>
+			<div class="form-group" align="right">
+				<label for="male">: انتهت </label>
+					<br>
+				نعم <input type="radio" name="case_closed" value="1">
+					<br>
+				لا <input type="radio" name="case_closed" value="0" checked>
+					<br>
+			</div>
 			<div class="form-group">
 				<label style="float:right; font-size: 20px;">الصورة</label>
 				<input type="file" name="select_file" />
