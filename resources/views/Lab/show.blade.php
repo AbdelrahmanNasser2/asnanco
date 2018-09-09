@@ -41,7 +41,7 @@
 						<a href="{{ action('LabController@edit',$lb['id']) }}" class="btn btn-success">تعديل</a>	   
 					</td>
 					<td align="Center">
-						@if($purchase['img_name'])
+						@if($lb['img_name'])
 						<img src="/images/Labs/{{ $lb['img_name'] }}" width="100" height="100" class="lab_img" data-toggle="modal" data-target="#lab_img_modal_{{ $lb['id'] }}">
 						<div class="modal fade" id="lab_img_modal_{{ $lb['id'] }}" role="dialog">
 		                    <div class="modal-dialog modal-md">

@@ -93,16 +93,18 @@
 							<a href="{{ action('LabController@edit',$lb['id']) }}" class="btn btn-success">تعديل</a>	   
 						</td>
 						<td style="text-align:center;">
-							<img src="/images/{{ $lb['img_name'] }}" width="100" height="100" class="lab_img" data-toggle="modal" data-target="#lab_img_modal_{{ $lb['id'] }}">
+							@if($lb['img_name'])
+							<img src="/images/Labs/{{ $lb['img_name'] }}" width="100" height="100" class="lab_img" data-toggle="modal" data-target="#lab_img_modal_{{ $lb['id'] }}">
 							<div class="modal fade" id="lab_img_modal_{{ $lb['id'] }}" role="dialog">
 			                    <div class="modal-dialog modal-md">
 			                        <div class="modal-content">
 			                            <div class="modal-body" style="text-align: center;">
-			                                <img src="/images/{{ $lb['img_name'] }}" class="img-responsive img-thumbnail" alt="Lab Image">
+			                                <img src="/images/Labs/{{ $lb['img_name'] }}" class="img-responsive img-thumbnail" alt="Lab Image">
 			                            </div>
 			                        </div>
 			                    </div>
 			                </div>
+			                @endif
 						</td>
 						<td style="text-align:center;">
 							@if($lb["case_closed"] == 0)
