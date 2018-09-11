@@ -81,6 +81,7 @@
 				<th style="text-align: center;">تعديل / حذف</th>
 				@endif
 				<th style="text-align: center;">التعليق</th>
+				<th style="text-align: center;">الأسنان</th>
 				<th style="text-align: center;">نوع الزيارة</th>
 				<th style="text-align: center;">المتبقي</th>
 				<th style="text-align: center;">المدفوع</th>
@@ -105,6 +106,17 @@
 					@endif
 					
 					<td style="text-align: center; white-space: pre;">{{ $visit['comment'] }}</td>
+					<td style="text-align: center;">
+						@if($visit_tooth)
+							@for ($i = 0; $i < count($visit_tooth); $i++)
+								@if($visit_tooth[$i][0]['visit_id'] == $visit['id'])
+									@for ($j = 0; $j < count($visit_tooth[$i]); $j++)	
+										{{ $visit_tooth[$i][$j]['tooth'] }}
+									@endfor
+								@endif
+							@endfor
+						@endif
+					</td>
 					<td style="text-align: center; white-space: pre;">{{ $visit['visit_type'] }}</td>
 					<td style="text-align: center;">{{ $visit['remain'] }}</td>
 					<td style="text-align: center;">{{ $visit['paid'] }}</td>

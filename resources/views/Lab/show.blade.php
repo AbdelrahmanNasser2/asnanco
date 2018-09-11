@@ -92,7 +92,7 @@
 			}
 
 		});
-		
+		$('#labs_table').DataTable();
 	});
 </script>
 @endsection

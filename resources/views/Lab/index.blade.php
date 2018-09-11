@@ -1,4 +1,4 @@
-@extends('master')
+	@extends('master')
 
 @section('content')
 <style type="text/css">
@@ -14,6 +14,10 @@
 			<br/>
 			@if($message = Session::get('success'))
 			<div class="alert alert-success" style="text-align: right;">
+				<p>{{$message}}</p>
+			</div>
+			@elseif($message = Session::get('fail'))
+			<div class="alert alert-danger" style="text-align: right;">
 				<p>{{$message}}</p>
 			</div>
 			@endif
@@ -52,11 +56,11 @@
 					</div>
 					<div class="form-group col-md-3" style="display:inline;">
 						<label style="float:right; font-size: 20px;">تاريخ الأستلام</label>
-						<input type="date" name="recieptDate" class="form-control" placeholder="تاريخ الأستلام" required="">
+						<input type="month" name="recieptDate" class="form-control" placeholder="yyyy-mm" >
 					</div>
 					<div class="form-group col-md-3" style="display:inline;">
 						<label style="float:right; font-size: 20px;">اسم المعمل</label>
-						<input type="text" name="labName" class="form-control" placeholder="اسم المعمل" required="" style="text-align:right;">
+						<input type="text" name="labName" class="form-control" placeholder="اسم المعمل" style="text-align:right;">
 					</div>
 				</form>
 				

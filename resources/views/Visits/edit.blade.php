@@ -45,6 +45,116 @@
 				<input type="number" step="0.1" min="0" name="remain" class="form-control" placeholder="المتبقي" 
 				required="" value="{{ $visit['remain'] }}" style="text-align:right;">
 			</div>
+
+			<div class="form-group">
+				<table class="table table-bordered table-striped" >
+					<tbody>
+						<tr>
+							<th colspan="16">Permanent Dentition</th>
+						</tr>
+						<tr>
+							<th colspan="8" align="center">upper right</th>
+							<th colspan="8" align="center">upper left</th>
+						</tr>
+						<tr>
+							<td><sup>8</sup>┘<br/><input type="checkbox" name="check[]" value="8┘"></td>
+							<td><sup>7</sup>┘<br/><input type="checkbox" name="check[]" value="7┘"></td>
+							<td><sup>6</sup>┘<br/><input type="checkbox" name="check[]" value="6┘"></td>
+							<td><sup>5</sup>┘<br/><input type="checkbox" name="check[]" value="5┘"></td>
+							<td><sup>4</sup>┘<br/><input type="checkbox" name="check[]" value="4┘"></td>
+							<td><sup>3</sup>┘<br/><input type="checkbox" name="check[]" value="3┘"></td>
+							<td><sup>2</sup>┘<br/><input type="checkbox" name="check[]" value="2┘"></td>
+							<td><sup>1</sup>┘<br/><input type="checkbox" name="check[]" value="1┘"></td>
+							<td>└<sup>1</sup><br/><input type="checkbox" name="check[]" value="└1"></td>
+							<td>└<sup>2</sup><br/><input type="checkbox" name="check[]" value="└2"></td>
+							<td>└<sup>3</sup><br/><input type="checkbox" name="check[]" value="└3"></td>
+							<td>└<sup>4</sup><br/><input type="checkbox" name="check[]" value="└4"></td>
+							<td>└<sup>5</sup><br/><input type="checkbox" name="check[]" value="└5"></td>
+							<td>└<sup>6</sup><br/><input type="checkbox" name="check[]" value="└6"></td>
+							<td>└<sup>7</sup><br/><input type="checkbox" name="check[]" value="└7"></td>
+							<td>└<sup>8</sup><br/><input type="checkbox" name="check[]" value="└8"></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" name="check[]" value="8┐"><br/><sub>8</sub>┐</td>
+							<td><input type="checkbox" name="check[]" value="7┐"><br/><sub>7</sub>┐</td>
+							<td><input type="checkbox" name="check[]" value="6┐"><br/><sub>6</sub>┐</td>
+							<td><input type="checkbox" name="check[]" value="5┐"><br/><sub>5</sub>┐</td>
+							<td><input type="checkbox" name="check[]" value="4┐"><br/><sub>4</sub>┐</td>
+							<td><input type="checkbox" name="check[]" value="3┐"><br/><sub>3</sub>┐</td>
+							<td><input type="checkbox" name="check[]" value="2┐"><br/><sub>2</sub>┐</td>
+							<td><input type="checkbox" name="check[]" value="1┐"><br/><sub>1</sub>┐</td>
+							<td><input type="checkbox" name="check[]" value="┌1"><br/>┌<sub>1</sub></td>
+							<td><input type="checkbox" name="check[]" value="┌2"><br/>┌<sub>2</sub></td>
+							<td><input type="checkbox" name="check[]" value="┌3"><br/>┌<sub>3</sub></td>
+							<td><input type="checkbox" name="check[]" value="┌4"><br/>┌<sub>4</sub></td>
+							<td><input type="checkbox" name="check[]" value="┌5"><br/>┌<sub>5</sub></td>
+							<td><input type="checkbox" name="check[]" value="┌6"><br/>┌<sub>6</sub></td>
+							<td><input type="checkbox" name="check[]" value="┌7"><br/>┌<sub>7</sub></td>
+							<td><input type="checkbox" name="check[]" value="┌8"><br/>┌<sub>8</sub></td>
+						</tr>
+						<tr>
+							<th colspan="8" align="center">lower right</th>
+							<th colspan="8" align="center">lower left</th>
+						</tr>
+						<tr>
+							<td colspan="16" align="center"></td>
+						</tr>
+						<tr>
+							<th colspan="16" align="center">Primary Dentition</th>
+						</tr>
+						<tr>
+							<th colspan="8" align="center">upper right</th>
+							<th colspan="8" align="center">upper left</th>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td><sup>E</sup>┘<br/><input type="checkbox" name="check[]" value="E┘"></td>
+							<td><sup>D</sup>┘<br/><input type="checkbox" name="check[]" value="D┘"></td>
+							<td><sup>C</sup>┘<br/><input type="checkbox" name="check[]" value="C┘"></td>
+							<td><sup>B</sup>┘<br/><input type="checkbox" name="check[]" value="B┘"></td>
+							<td><sup>A</sup>┘<br/><input type="checkbox" name="check[]" value="A┘"></td>
+							<td>└<sup>A</sup><br/><input type="checkbox" name="check[]" value="└A"></td>
+							<td>└<sup>B</sup><br/><input type="checkbox" name="check[]" value="└B"></td>
+							<td>└<sup>C</sup><br/><input type="checkbox" name="check[]" value="└C"></td>
+							<td>└<sup>D</sup><br/><input type="checkbox" name="check[]" value="└D"></td>
+							<td>└<sup>E</sup><br/><input type="checkbox" name="check[]" value="└E"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td><input type="checkbox" name="check[]" value="E┐"><br/><sub>E</sub>┐</td>
+							<td><input type="checkbox" name="check[]" value="D┐"><br/><sub>D</sub>┐</td>
+							<td><input type="checkbox" name="check[]" value="C┐"><br/><sub>C</sub>┐</td>
+							<td><input type="checkbox" name="check[]" value="B┐"><br/><sub>B</sub>┐</td>
+							<td><input type="checkbox" name="check[]" value="A┐"><br/><sub>A</sub>┐</td>
+							<td><input type="checkbox" name="check[]" value="┌A"><br/>┌<sub>A</sub></td>
+							<td><input type="checkbox" name="check[]" value="┌B"><br/>┌<sub>B</sub></td>
+							<td><input type="checkbox" name="check[]" value="┌C"><br/>┌<sub>C</sub></td>
+							<td><input type="checkbox" name="check[]" value="┌D"><br/>┌<sub>D</sub></td>
+							<td><input type="checkbox" name="check[]" value="┌E"><br/>┌<sub>E</sub></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<th colspan="8" align="center">lower right</th>
+							<th colspan="8" align="center">lower left</th>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			@for ($i = 0; $i < count($visit_tooth); $i++)
+				<script>
+					$('input[value="{{ $visit_tooth[$i]["tooth"] }}"]').attr('checked','checked');
+				</script>
+			@endfor
+
 			<div class="form-group">
 				<label style="float: right; font-size: 20px;">تعليق</label>
 				<textarea name="comment" rows="4" class="form-control" placeholder="تعليق" 

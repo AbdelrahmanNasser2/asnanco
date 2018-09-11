@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Patient;
 use App\Visit;
+use App\visit_tooth;
 use Excel;
 use  App\Exports\PatientExport;
 use App\Exports\VisitExport;
@@ -97,7 +98,22 @@ class PatientsController extends Controller
         $patient = Patient::find($id);
         $visits = Visit::where('patient_id' , $id)->get();
 
-        return view('Patients.show', compact('patient' , 'visits'));
+
+        $visit_tooth = array();
+
+        foreach ($visits as $visit) {
+            $vt = visit_tooth::where('visit_id', $visit->id)->get();
+            array_push($visit_tooth, $vt);
+        }
+
+        // echo "<pre>";
+        // print_r($visit_tooth);
+        // echo "</pre>";
+        if (!isset($visit_tooth)) {
+            $visit_tooth = false;
+        }    
+        
+        return view('Patients.show', compact('patient' , 'visits', 'visit_tooth'));
     }
 
     /**
@@ -185,7 +201,7 @@ class PatientsController extends Controller
         ]);
 
         $visit = new Visit();
-
+        
         $visit->dr_name = $request->get('drname');
         $visit->visit_date = $request->get('visit_date');
         $visit->cost = $request->get('cost');
@@ -195,8 +211,20 @@ class PatientsController extends Controller
         $visit->patient_id = $request->get('patient_id');
         $visit->created_by = session('username');
         $visit->visit_type = $request->get('selection');
+
         $visit->save();
 
+
+        $check = $request->get('check');
+
+        for ($i=0; $i < sizeof($check); $i++) { 
+            $visit_tooth = new visit_tooth();
+            $visit_tooth->visit_id = $visit->id;
+            $visit_tooth->tooth = $check[$i];
+            $visit_tooth->save();
+        }
+
+   
         return redirect('Patients/'. $request->get('patient_id'))->with('success', 'تم إضافة الزياره');
 
     }
@@ -213,7 +241,13 @@ class PatientsController extends Controller
 
         $visit = Visit::find($id);
 
-        return view('Visits.edit', compact('visit'));
+        $visit_tooth = visit_tooth::where('visit_id', $id)->get();
+
+        // echo "<pre>";
+        // print_r($visit_tooth);
+        // echo "</pre>";
+
+         return view('Visits.edit', compact('visit','visit_tooth'));
     }
 
     public function updateVisit(Request $request, $id){
@@ -241,6 +275,20 @@ class PatientsController extends Controller
         $visit->visit_type = $request->get('selection');
         
         $visit->save();
+
+        $vt = visit_tooth::where('visit_id', $id)->get();
+        foreach ($vt as $tooth) {
+            $tooth->delete();
+        }
+
+
+        $check = $request->get('check');
+        for ($i=0; $i < sizeof($check); $i++) { 
+            $visit_tooth = new visit_tooth();
+            $visit_tooth->visit_id = $visit->id;
+            $visit_tooth->tooth = $check[$i];
+            $visit_tooth->save();
+        }
 
         return redirect('Patients/'. $patient_id)->with('success', 'تم التعديل');
 

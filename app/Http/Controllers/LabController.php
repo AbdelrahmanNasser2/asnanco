@@ -127,13 +127,63 @@ class LabController extends Controller
         $lab_name = $request->get('labName');
         $receipt_date = $request->get('recieptDate');
 
-        $lab = Lab::where('lab_name', $lab_name)
-                    ->Where('receipt_date', $receipt_date)
-                    ->get();
-        if($lab)
-        {
-           return view('Lab.show', compact('lab'));
+        $dateArray = explode('-', $receipt_date);
+
+            
+        if ($lab_name != "" && $receipt_date != "") {
+        
+            if (strlen($dateArray[0]) == 4 && strlen($dateArray[1]) == 2 && is_numeric($dateArray[0]) && is_numeric($dateArray[1])) {
+                $lab = Lab::where('lab_name', $lab_name)
+                        ->whereMonth('receipt_date', $dateArray[1])
+                        ->whereYear('receipt_date', $dateArray[0])
+                        ->get();
+
+                if($lab)
+                {
+                    return view('Lab.show', compact('lab'));
+                }
+            }else{
+                return redirect()->route('Lab.index')->with('fail', 'التاريخ غير صحيح');
+            }
+            
         }
+        elseif($lab_name != "" && $receipt_date == "")
+        {
+            $lab = Lab::where('lab_name', $lab_name)->get();
+
+            if($lab)
+            {
+                return view('Lab.show', compact('lab'));
+            }
+
+        }elseif ($receipt_date != "" && $lab_name == "") {
+            
+            if (strlen($dateArray[0]) == 4 && strlen($dateArray[1]) == 2 && is_numeric($dateArray[0]) && is_numeric($dateArray[1])) {
+            
+                $lab = Lab::whereMonth('receipt_date', $dateArray[1])
+                            ->whereYear('receipt_date', $dateArray[0])
+                            ->get();
+
+                if($lab)
+                {
+                    return view('Lab.show', compact('lab'));
+                }
+            }else{
+                return redirect()->route('Lab.index')->with('fail', 'التاريخ غير صحيح');
+            }
+
+        }else{
+
+            $lab = Lab::all();
+
+            if($lab)
+            {
+               return view('Lab.show', compact('lab'));
+            }
+
+        }
+
+        
     }
 
     // public function show($id)
