@@ -197,7 +197,8 @@ class PatientsController extends Controller
             'cost'       => 'required | numeric',
             'remain'     => 'required | numeric',
             'comment'    => 'required',
-            'selection'  => 'required'
+            'selection'  => 'required',
+            'check'      => 'required'
         ]);
 
         $visit = new Visit();
@@ -259,7 +260,8 @@ class PatientsController extends Controller
             'paid'       => 'required | numeric',
             'remain'     => 'required | numeric',
             'comment'    => 'required',
-            'selection'  => 'required'
+            'selection'  => 'required',
+            'check'      => 'required'
         ]);
 
         $visit = Visit::find($id);

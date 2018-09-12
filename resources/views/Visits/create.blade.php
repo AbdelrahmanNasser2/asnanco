@@ -22,7 +22,11 @@
 		<div class="alert alert-danger">
 			<ul>
 			@foreach($errors->all() as $error)
-				<li>{{ $error }}</li>
+				@if(strpos($error, 'check') != false)
+				    <li style="text-align: right;">اختار سنه واحده على الاقل</li>
+				@else
+					<li>{{ $error }}</li>
+				@endif
 			@endforeach
 			</ul>
 		</div>
